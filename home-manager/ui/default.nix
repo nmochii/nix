@@ -1,0 +1,6 @@
+{ ui, ... }:
+{
+  imports = [
+    ./${ui.interface}
+  ];
+}
