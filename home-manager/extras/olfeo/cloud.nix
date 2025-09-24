@@ -3,8 +3,6 @@
   home.packages = with pkgs; [
     terraform
     ansible
-    python313
-    python313Packages.openstacksdk
   ];
   programs.awscli.enable = true;
 

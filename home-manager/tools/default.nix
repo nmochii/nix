@@ -51,7 +51,7 @@
       fd -i "''${@}" | fzf \
         --cycle \
         --preview "command __show_file_or_dir_preview {1}" \
-        --preview-window '75%' \
+        --preview-window 'up,80%,border-bottom' \
         --bind "enter:become($EDITOR {1})"
     '')
     (pkgs.writeShellScriptBin "rge" ''

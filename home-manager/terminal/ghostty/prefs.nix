@@ -5,7 +5,7 @@
     font-size = 14;
     maximize = true;
     window-decoration = false;
-    theme = "catppuccin-mocha";
+    theme = "Catppuccin Mocha";
     command = user.shell;
     mouse-hide-while-typing = true;
     mouse-scroll-multiplier = 1;
