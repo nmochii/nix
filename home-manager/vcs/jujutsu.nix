@@ -12,7 +12,7 @@
           null
         else
           {
-            behavior = "own";
+            behavior = "drop";
             backend = "gpg";
             key = user.gpgKey;
           }
@@ -80,6 +80,7 @@
       git = {
         auto-local-bookmark = false;
         push-new-bookmarks = true;
+        sign-on-push = user.gpgKey != "";
       };
     };
   };

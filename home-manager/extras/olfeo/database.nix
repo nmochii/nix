@@ -10,4 +10,8 @@
     file = ../../../secrets/olfeo/pgpass.age;
     path = "/home/${user.name}/.pgpass";
   };
+
+  programs.pgcli = {
+    enable = true;
+  };
 }

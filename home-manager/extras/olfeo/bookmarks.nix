@@ -12,8 +12,8 @@ let
           url = "https://mail.olfeo.com/webapp/mail/.t/821c300c-3110-a122-a76d-015efa5bb109:120803a0faa0eed9";
         }
         {
-          name = "gather r&d";
-          url = "https://app.gather.town/app/nD5c55aYn0bTgxlf/olfeord";
+          name = "gather";
+          url = "https://app.v2.gather.town/app/ekinops-olfeo-861c77f0-1261-46aa-ae2e-abeea378dae7";
         }
         {
           name = "outlook";
