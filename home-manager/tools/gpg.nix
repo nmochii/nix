@@ -4,9 +4,6 @@
   ...
 }:
 {
-  home.packages = [
-    pkgs.pinentry-curses
-  ];
   programs.gpg = {
     enable = true;
     homedir = "${user.config}/gnupg";
@@ -17,7 +14,7 @@
   services.gpg-agent = {
     enable = true;
     defaultCacheTtl = 3600 * 2;
-    maxCacheTtl = 3600 * 6;
+    maxCacheTtl = 3600 * 8;
     pinentry.package = pkgs.pinentry-curses;
   };
 }

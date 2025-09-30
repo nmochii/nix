@@ -1,7 +1,7 @@
-{
+rec {
   name = "akhe";
   fullName = "Albert Khe";
-  config = "/home/akhe/SSoT";
+  config = "/home/${name}/SSoT";
   email = "albertkhe@proton.me";
   shell = "fish";
   editor = "hx";

@@ -1,7 +1,11 @@
-{ user, ... }:
-{
-  imports = [
-    ./extras.nix
-  ]
-  ++ (if user.editor == "hx" then [ ./helix ] else [ ]);
+{user, ...}: {
+  imports =
+    [
+      ./extras.nix
+    ]
+    ++ (
+      if user.editor == "hx"
+      then [./helix]
+      else []
+    );
 }

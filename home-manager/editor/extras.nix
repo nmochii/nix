@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   home.packages = with pkgs; [
     # lsp
     tinymist # typst
@@ -7,6 +6,7 @@
     typescript-language-server
     emmet-ls
     ruff
+    pyright
     bash-language-server
     gopls
     rust-analyzer
@@ -16,9 +16,10 @@
     terraform-ls
     marksman
     angular-language-server
+    nixd
     # fmt
+    alejandra # nix
     yamlfmt
-    nixfmt-rfc-style
     nodePackages.prettier
   ];
 }

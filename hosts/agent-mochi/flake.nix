@@ -1,9 +1,9 @@
-rec {
-  description = "Home Manager configuration of akhe";
+{
+  description = "Home Manager configuration";
 
   inputs = {
     assets = {
-      url = "path:/home/akhe/work/akhe/nix/assets";
+      url = "github:nmochii/nix?dir=assets";
       flake = false;
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";

@@ -6,7 +6,7 @@
     userEmail = user.email;
     signing = (
       if user.gpgKey == "" then
-        null
+        { }
       else
         {
           key = user.gpgKey;
@@ -22,14 +22,13 @@
       logx = "log --ext-diff";
     };
     ignores = [
+      "node_modules"
       ".cache"
       ".direnv"
       ".envrc"
-      "node_modules"
-      "pylint.out"
-      ".ropeproject"
       ".venv"
       "scratch"
+      "workspaces"
     ];
     extraConfig = {
       branch.sort = "-committerdate";

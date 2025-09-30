@@ -1,4 +1,4 @@
-{ lib, user, ... }:
+{ user, ... }:
 {
   dconf.settings = {
     "org/gnome/media-keys" = { };

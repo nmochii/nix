@@ -31,16 +31,16 @@ EOF
 
 4. Create a host config
 5. Create a user config
-6. Link home-manager to your config
-7. Create the `~/SSoT` config dir
-8. Run `nix flake update`
+6. Link home-manager to the host config
 
 ```sh
 ln -s /path/to/host/config $HOME/.config/home-manager
 ```
 
-9. Install a desktop environement
-10. Run `home-manager switch`
+7. Create the `~/SSoT` config dir
+8. Run `nix flake update` within the host config
+9. Run `home-manager switch`
+10. (optional) Install a desktop environement
 
 ```sh
 # gnome

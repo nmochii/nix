@@ -1,4 +1,3 @@
-{ user, ... }:
 {
   programs.carapace = {
     enable = true;

@@ -1,6 +1,5 @@
 {
   user,
-  lib,
   ...
 }:
 {
@@ -13,7 +12,6 @@
   ];
 
   home.shellAliases = {
-    n = "nix-shell --run fish";
-    config = "cd /home/${user.name}/work/${user.name}/nix";
+    n = "nix-shell --run ${user.shell}";
   };
 }
