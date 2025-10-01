@@ -2,8 +2,7 @@
   pkgs,
   user,
   ...
-}:
-{
+}: {
   programs.gpg = {
     enable = true;
     homedir = "${user.config}/gnupg";

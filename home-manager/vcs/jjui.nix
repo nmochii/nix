@@ -1,21 +1,20 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   programs.jjui = {
     enable = true;
     settings.keys = {
-      cancel = [ "q" ];
-      inline_describe.mode = [ "m" ];
+      cancel = ["q"];
+      inline_describe.mode = ["m"];
       preview = {
-        mode = [ "enter" ];
-        scroll_up = [ "{" ];
-        scroll_down = [ "}" ];
-        half_page_up = [ "[" ];
-        half_page_down = [ "]" ];
-        expand = [ "=" ];
-        shrink = [ "-" ];
+        mode = ["enter"];
+        scroll_up = ["{"];
+        scroll_down = ["}"];
+        half_page_up = ["["];
+        half_page_down = ["]"];
+        expand = ["="];
+        shrink = ["-"];
       };
-      describe = [ "D" ];
-      diff = [ "d" ];
+      describe = ["D"];
+      diff = ["d"];
     };
   };
   home.packages = [

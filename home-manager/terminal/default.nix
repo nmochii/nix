@@ -1,5 +1,4 @@
-{ user, ... }:
-{
+{user, ...}: {
   imports = [
     ./${user.terminal}
   ];

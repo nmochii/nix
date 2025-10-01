@@ -1,8 +1,4 @@
-{
-  user,
-  ...
-}:
-{
+{user, ...}: {
   programs.bash.enable = true;
   imports = [
     ./carapace.nix

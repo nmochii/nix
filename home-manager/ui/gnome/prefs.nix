@@ -4,16 +4,14 @@
   assets,
   pkgs,
   ...
-}:
-let
+}: let
   extensions = with pkgs.gnomeExtensions; [
     clipboard-history
     system-monitor
     places-status-indicator
   ];
-in
-{
-  home.packages = [ ] ++ extensions;
+in {
+  home.packages = [] ++ extensions;
   dconf.settings = {
     "org/gnome/mutter" = {
       dynamic-workspaces = false;
@@ -25,7 +23,7 @@ in
           "us+intl"
         ])
       ];
-      xkb-options = [ "ctrl:nocaps" ];
+      xkb-options = ["ctrl:nocaps"];
     };
     "org/gnome/desktop/background" = {
       picture-uri-dark = "file:///${assets}/${ui.wallpaper}";

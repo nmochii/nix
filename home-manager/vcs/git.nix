@@ -1,17 +1,15 @@
-{ user, ... }:
-{
+{user, ...}: {
   programs.git = {
     enable = true;
     userName = user.fullName;
     userEmail = user.email;
     signing = (
-      if user.gpgKey == "" then
-        { }
-      else
-        {
-          key = user.gpgKey;
-          signByDefault = true;
-        }
+      if user.gpgKey == ""
+      then {}
+      else {
+        key = user.gpgKey;
+        signByDefault = true;
+      }
     );
     difftastic.enable = true;
     aliases = {

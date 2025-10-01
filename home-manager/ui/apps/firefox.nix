@@ -1,5 +1,4 @@
-{ user, ... }:
-{
+{user, ...}: {
   programs.firefox = {
     enable = true;
     policies = {

@@ -1,5 +1,4 @@
-{ user, ... }:
-{
+{user, ...}: {
   programs.ghostty.settings = {
     font-family = "Iosevka Nerd Font";
     font-size = 14;

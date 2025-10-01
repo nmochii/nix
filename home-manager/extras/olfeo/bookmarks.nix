@@ -50,8 +50,7 @@ let
       ];
     }
   ];
-in
-{
+in {
   programs.firefox.profiles.default.bookmarks = {
     force = true;
     settings = [

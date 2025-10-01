@@ -1,8 +1,5 @@
-{
-  pkgs,...
-}:
-  {
-    home.packages = [
-      pkgs.tree
-    ];
-  }
+{pkgs, ...}: {
+  home.packages = [
+    pkgs.tree
+  ];
+}

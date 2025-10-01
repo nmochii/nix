@@ -1,5 +1,4 @@
-{ user, ... }:
-{
+{user, ...}: {
   home.shellAliases = {
     icat = "kitten icat";
   };

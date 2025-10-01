@@ -2,9 +2,8 @@
   pkgs,
   user,
   ...
-}:
-{
-  home.packages = [ pkgs.postgresql ];
+}: {
+  home.packages = [pkgs.postgresql];
   age.secrets.pgpass = {
     file = ../../../secrets/olfeo/pgpass.age;
     path = "/home/${user.name}/.pgpass";

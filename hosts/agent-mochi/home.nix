@@ -5,9 +5,7 @@
   nixgl,
   user,
   ...
-}:
-
-{
+}: {
   home.username = user.name;
   home.homeDirectory = "/home/${user.name}";
 
@@ -16,12 +14,12 @@
   home.keyboard = {
     layout = "us";
     variant = "intl";
-    options = [ "ctrl:swapcaps" ];
+    options = ["ctrl:swapcaps"];
   };
 
   nixGL.packages = nixgl.packages;
   nixGL.defaultWrapper = "mesa";
-  nixGL.installScripts = [ "mesa" ];
+  nixGL.installScripts = ["mesa"];
 
   home.sessionVariables = {
     EDITOR = user.editor;

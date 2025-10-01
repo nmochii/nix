@@ -1,5 +1,4 @@
-{ user, ... }:
-{
+{user, ...}: {
   xdg.configFile."yamlfmt/.yamlfmt".text = ''
     formatter:
       retain_line_breaks: true
