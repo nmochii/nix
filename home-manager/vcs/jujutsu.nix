@@ -19,16 +19,13 @@
         default-command = "log";
         editor = user.editor;
         conflict-marker-style = "snapshot";
-        bookmark-list-sort-keys = [
-          "committer-date"
-          "name"
-        ];
-        diff-formater = [
-          "difft"
-          "--color=always"
-          "$left"
-          "$right"
-        ];
+        bookmark-list-sort-keys = ["committer-date"];
+      };
+      merge-tools = {
+        difft = {
+          program = "difft";
+          diff-args = ["--color=always" "$left" "$right"];
+        };
       };
       revset-aliases = {
         "active(rev)" = "trunk()::rev";
@@ -47,7 +44,7 @@
         push-new-bookmarks = true;
         sign-on-push = user.gpgKey != "";
         private-commits = "blacklist";
-        subprocess = true; # use git instread of libgit2, usually faster
+        subprocess = true; # use git instread of libgit2
         colocate = true;
       };
       template-aliases.default_commit_description = ''
@@ -61,26 +58,20 @@
         "
       '';
       aliases = {
-        tug = [
-          "bookmark"
-          "move"
-          "--from"
-          "heads(::@- & bookmarks())"
-          "--to"
-          "@-"
-        ];
+        tug = ["bookmark" "move" "--from" "heads(::@- & bookmarks())" "--to" "@-"];
+        nn = ["new" "--no-edit"];
         private = ["new" "-m" "[private]"];
         wip = ["new" "-m" "[wip]"];
         merge = ["new" "-m" "[merge]" "--no-edit"];
-        merge-add = ["rebase" "-s" "merge" "-d" "merge-"];
+        merge-add = ["rebase" "-s" "merge & current" "-d" "merge- & current"];
         rebase-all = ["rebase" "-s" "roots(trunk()..mutable())" "-d" "trunk()"];
-        bookmarks = ["bookmark" "list" "--tracked"];
         history = ["log" "-r" "::"];
         blame = ["file" "annotate"];
         fetch = ["git" "fetch"];
         push = ["git" "push" "-b"];
         clone = ["git" "clone"];
         init = ["git" "init"];
+        difft = ["diff" "--tool" "difft"];
         ui = ["util" "exec" "__custom_jjui"];
       };
     };
