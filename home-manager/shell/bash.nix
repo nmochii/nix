@@ -1,5 +1,5 @@
 {
-  home.shell.enableBashShellIntegration = true;
+  home.shell.enableBashIntegration = true;
   programs.bash = {
     enable = true;
   };

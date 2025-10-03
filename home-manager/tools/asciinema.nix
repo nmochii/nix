@@ -1,5 +1,5 @@
-{pkgs, ...}: {
-  home.packages = [
-    pkgs.asciinema
-  ];
+{
+  programs.asciinema = {
+    enable = true;
+  };
 }

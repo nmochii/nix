@@ -3,7 +3,6 @@
 
   programs.fish = {
     enable = true;
-    preferAbbrs = true;
     shellInit = ''
       if status --is-interactive
         eval (direnv hook fish)

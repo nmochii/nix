@@ -1,4 +1,13 @@
-{user, ...}: {
+{
+  user,
+  pkgs,
+  ...
+}: let
+  label = t: "[${t}]";
+  wip-label = label "wip";
+  private-label = label "private";
+  merge-label = label "mega merge";
+in {
   programs.jujutsu = {
     enable = true;
     settings = {
@@ -28,11 +37,11 @@
         };
       };
       revset-aliases = {
-        "active(rev)" = "trunk()::rev";
+        "active(rev)" = "trunk()..rev";
         current = "active(@)";
-        wip = "description('[wip]')";
-        private = "description('[private]')";
-        merge = "description('[merge]')";
+        wip = "description('${wip-label}')";
+        private = "description('${private-label}')";
+        merge = "description('${merge-label}')";
         blacklist = "wip | private | merge";
         "user(x)" = "author(x) | committer(x)";
       };
@@ -45,7 +54,10 @@
         sign-on-push = user.gpgKey != "";
         private-commits = "blacklist";
         subprocess = true; # use git instread of libgit2
-        colocate = true;
+        colocate = false;
+      };
+      snapshot = {
+        auto-update-stale = true;
       };
       template-aliases.default_commit_description = ''
         "
@@ -58,11 +70,12 @@
         "
       '';
       aliases = {
-        tug = ["bookmark" "move" "--from" "heads(::@- & bookmarks())" "--to" "@-"];
-        nn = ["new" "--no-edit"];
-        private = ["new" "-m" "[private]"];
-        wip = ["new" "-m" "[wip]"];
-        merge = ["new" "-m" "[merge]" "--no-edit"];
+        ui = ["util" "exec" "__jj_ui"];
+        tug = ["util" "exec" "__jj_tug"];
+        nn = ["new" "--no-edit" "--insert-after"];
+        private = ["new" "-m" private-label];
+        wip = ["new" "-m" wip-label];
+        merge = ["new" "-m" merge-label "--no-edit"];
         merge-add = ["rebase" "-s" "merge & current" "-d" "merge- & current"];
         rebase-all = ["rebase" "-s" "roots(trunk()..mutable())" "-d" "trunk()"];
         history = ["log" "-r" "::"];
@@ -72,8 +85,16 @@
         clone = ["git" "clone"];
         init = ["git" "init"];
         difft = ["diff" "--tool" "difft"];
-        ui = ["util" "exec" "__custom_jjui"];
       };
     };
   };
+  home.packages = [
+    (pkgs.writeShellScriptBin "__jj_tug" ''
+      #!/usr/bin/env bash
+      bookmarks=$(jj bookmark list -r current | cut -d: -f1 | grep -v @)
+      for bookmark in $bookmarks; do
+        jj bookmark move --from "$bookmark" --to "heads(bookmarks('$bookmark')::roots(merge- | @-))"
+      done
+    '')
+  ];
 }
