@@ -3,23 +3,24 @@
     ./age.nix
     ./asciinema.nix
     ./bat.nix
-    ./bottom.nix
-    ./dust.nix # better du
+    ./dust.nix # du
     ./eza.nix
     ./fd.nix
     ./fzf.nix
     ./gpg.nix
     ./hck.nix # cut
+    ./htop.nix
     ./hyperfine.nix # benchmark
     ./imagemagick.nix
     ./pik.nix # interactive kill
     ./ripgrep.nix
+    ./sd.nix
     ./ssh.nix
     ./tree.nix
     ./typst.nix
     ./yazi.nix
     ./yt-dlp.nix
-    ./viu.nix # image viewer
+    ./viu.nix
     ./zellij.nix
     ./zoxide.nix
   ];
@@ -65,8 +66,8 @@
   home.sessionVariables = {
     FZF_DEFAULT_OPTS = "--layout=reverse --border --cycle";
     FZF_CTRL_T_COMMAND = "fd";
-    FZF_CTRL_T_OPTS = "--preview '__show_file_or_dir_preview {}' --preview-window '75%' --cycle";
+    FZF_CTRL_T_OPTS = "--preview '__show_file_or_dir_preview {}' --preview-window '75%'";
     FZF_ALT_C_COMMAND = "fd --type d";
-    FZF_ALT_C_OPTS = "--preview '__show_file_or_dir_preview {}' --preview-window '75%' --cycle";
+    FZF_ALT_C_OPTS = "--preview '__show_file_or_dir_preview {}' --preview-window '75%'";
   };
 }

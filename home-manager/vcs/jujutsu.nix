@@ -37,7 +37,7 @@ in {
         };
       };
       revset-aliases = {
-        "active(rev)" = "trunk()..rev";
+        "active(rev)" = "trunk()::rev";
         current = "active(@)";
         wip = "description('${wip-label}')";
         private = "description('${private-label}')";
@@ -63,7 +63,7 @@ in {
         "
 
         JJ: Conventional commit : feat(lang)!: add support for french
-        JJ: <type>[optional scope]: <description>
+        JJ: <type>[optional scope][!: breaking changes]: <description>
         JJ: [optional body]
         JJ: [optional footer(s)]
         JJ: types: fix|feat|!feat(breaking change)|build|chore|ci|docs|style|refactor|perf|test
@@ -72,12 +72,12 @@ in {
       aliases = {
         ui = ["util" "exec" "__jj_ui"];
         tug = ["util" "exec" "__jj_tug"];
-        nn = ["new" "--no-edit" "--insert-after"];
+        nn = ["new" "--no-edit"];
         private = ["new" "-m" private-label];
         wip = ["new" "-m" wip-label];
         merge = ["new" "-m" merge-label "--no-edit"];
         merge-add = ["rebase" "-s" "merge & current" "-d" "merge- & current"];
-        rebase-all = ["rebase" "-s" "roots(trunk()..mutable())" "-d" "trunk()"];
+        retrunk = ["rebase" "-s" "roots(trunk()..mutable())" "-d" "trunk()"];
         history = ["log" "-r" "::"];
         blame = ["file" "annotate"];
         fetch = ["git" "fetch"];

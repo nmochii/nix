@@ -11,5 +11,8 @@
 
   programs.pgcli = {
     enable = true;
+    settings = {
+      main.keyring = false;
+    };
   };
 }

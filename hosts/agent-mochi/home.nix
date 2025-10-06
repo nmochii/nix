@@ -38,5 +38,6 @@
   programs = {
     kitty.package = config.lib.nixGL.wrap pkgs.kitty;
     ghostty.package = config.lib.nixGL.wrap pkgs.ghostty;
+    firefox.package = config.lib.nixGL.wrap pkgs.firefox;
   };
 }
