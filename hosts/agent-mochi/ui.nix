@@ -1,5 +1,5 @@
 {
   interface = "gnome";
-  wallpaper = "space.jpg";
+  wallpaper = "wallpaper.jpg";
   clipboard = "clipse";
 }

@@ -1,6 +1,5 @@
 {
   config,
-  lib,
   pkgs,
   nixgl,
   user,
@@ -17,10 +16,6 @@
     options = ["ctrl:swapcaps"];
   };
 
-  nixGL.packages = nixgl.packages;
-  nixGL.defaultWrapper = "mesa";
-  nixGL.installScripts = ["mesa"];
-
   home.sessionVariables = {
     EDITOR = user.editor;
     PAGER = user.pager;
@@ -35,9 +30,14 @@
     hms = "home-manager switch";
   };
 
+  nixGL.packages = nixgl.packages;
+  nixGL.defaultWrapper = "mesa";
+  nixGL.installScripts = ["mesa"];
+
   programs = {
     kitty.package = config.lib.nixGL.wrap pkgs.kitty;
     ghostty.package = config.lib.nixGL.wrap pkgs.ghostty;
     firefox.package = config.lib.nixGL.wrap pkgs.firefox;
+    chromium.package = config.lib.nixGL.wrap pkgs.chromium;
   };
 }

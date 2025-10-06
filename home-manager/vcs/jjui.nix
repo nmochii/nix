@@ -2,9 +2,7 @@
   programs.jjui = {
     enable = true;
     settings.keys = {
-      inline_describe.mode = ["m"];
       preview = {
-        mode = ["enter"];
         scroll_up = ["{"];
         scroll_down = ["}"];
         half_page_up = ["["];
@@ -12,13 +10,10 @@
         expand = ["="];
         shrink = ["-"];
       };
-      describe = ["D"];
-      diff = ["d"];
     };
   };
   home.packages = [
     (pkgs.writeShellScriptBin "__jj_ui" ''
-      #!/usr/bin/env bash
       if [ $# -eq 1 ] && [ -f $1 ]; then
         jjui -r "files($1)"
       else

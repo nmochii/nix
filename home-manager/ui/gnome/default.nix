@@ -4,6 +4,7 @@
     ../apps/clipse.nix
     ../apps/firefox.nix
     ../apps/librewolf.nix
+    ../apps/mpv.nix
     ../apps/office.nix
     ./keybinds.nix
     ./prefs.nix
