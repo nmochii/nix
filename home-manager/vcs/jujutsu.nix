@@ -26,10 +26,15 @@ in {
         }
       );
       ui = {
-        default-command = "log";
         editor = user.editor;
         conflict-marker-style = "snapshot";
         bookmark-list-sort-keys = ["committer-date"];
+        diff-editor = ":builtin";
+        default-command = [
+          "log"
+          "--config"
+          "template-aliases.'format_timestamp(ts)'='ts.local().ago()'"
+        ];
       };
       merge-tools = {
         difft = {
@@ -38,7 +43,7 @@ in {
         };
       };
       revset-aliases = {
-        "active(rev)" = "trunk()::rev";
+        "active(rev)" = "mutable()-::rev";
         current = "active(@)";
         wip = "description('${wip-label}')";
         private = "description('${private-label}')";
@@ -60,16 +65,18 @@ in {
       snapshot = {
         auto-update-stale = true;
       };
-      template-aliases.default_commit_description = ''
-        "
+      template-aliases = {
+        default_commit_description = ''
+          "
 
-        JJ: Conventional commit : feat(lang)!: add support for french
-        JJ: <type>[optional scope][!: breaking changes]: <description>
-        JJ: [optional body]
-        JJ: [optional footer(s)]
-        JJ: types: fix|feat|!feat(breaking change)|build|chore|ci|docs|style|refactor|perf|test
-        "
-      '';
+          JJ: Conventional commit : feat(lang)!: add support for french
+          JJ: <type>[optional scope][!: breaking changes]: <description>
+          JJ: [optional body]
+          JJ: [optional footer(s)]
+          JJ: types: fix|feat|!feat(breaking change)|build|chore|ci|docs|style|refactor|perf|test
+          "
+        '';
+      };
       aliases = {
         ui = ["util" "exec" "__jj_ui"];
         tug = ["util" "exec" "__jj_tug"];
@@ -77,8 +84,8 @@ in {
         private = ["new" "-m" private-label];
         wip = ["new" "-m" wip-label];
         merge = ["new" "-m" merge-label "--no-edit"];
-        merge-add = ["rebase" "-s" "merge & current" "-d" "merge- & current"];
-        retrunk = ["rebase" "-s" "roots(trunk()..mutable())" "-d" "trunk()"];
+        merge-add = ["rebase" "-s" "merge & current" "-d" "merge- & current" "-d"];
+        retrunk = ["rebase" "-s" "roots(mutable())" "-d" "trunk()"];
         history = ["log" "-r" "::"];
         blame = ["file" "annotate"];
         fetch = ["git" "fetch"];

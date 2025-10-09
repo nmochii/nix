@@ -44,6 +44,10 @@ let
           url = "https://api.oem.olfeo.eu/login";
         }
         {
+          name = "grafana";
+          url = "https://metrics.tools.ovh.olfeo.com/admin";
+        }
+        {
           name = "figma";
           url = "https://www.figma.com/design/VFgObCkbLboLhxvbDhBVig/Octopussy?node-id=346-3005&m=dev";
         }

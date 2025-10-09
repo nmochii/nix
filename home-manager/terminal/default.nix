@@ -1,5 +1,5 @@
-{user, ...}: {
+{ui, ...}: {
   imports = [
-    ./${user.terminal}
+    ./${ui.terminal}
   ];
 }

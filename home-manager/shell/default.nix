@@ -8,6 +8,7 @@
   ];
 
   home.shellAliases = {
+    "nix:shell" = "nix repl --expr 'import <nixpkgs> {}'";
     n = "nix-shell --run ${user.shell}";
   };
 }

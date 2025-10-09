@@ -3,6 +3,6 @@
     ignores = [
       "criticality.yaml"
     ];
-    extraConfig.url."ssh://git@gitlab.olfeo.tech/".insteadOf = "https://gitlab.olfeo.tech/";
+    settings.url."ssh://git@gitlab.olfeo.tech/".insteadOf = "https://gitlab.olfeo.tech/";
   };
 }

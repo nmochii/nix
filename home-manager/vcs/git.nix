@@ -1,8 +1,6 @@
 {user, ...}: {
   programs.git = {
     enable = true;
-    userName = user.fullName;
-    userEmail = user.email;
     signing = (
       if user.gpgKey == ""
       then {}
@@ -11,14 +9,6 @@
         signByDefault = true;
       }
     );
-    difftastic.enable = true;
-    aliases = {
-      cleanup = "!git branch --merged | grep -v '\\*\\|main\\|master' | xargs -n 1 -r git branch -d";
-      history = "log --stat --oneline --graph --all";
-      root = "rev-parse --show-toplevel";
-      showx = "show --ext-diff";
-      logx = "log --ext-diff";
-    };
     ignores = [
       "node_modules"
       ".cache"
@@ -28,7 +18,18 @@
       "scratch"
       "workspaces"
     ];
-    extraConfig = {
+    settings = {
+      user = {
+        name = user.fullName;
+        email = user.email;
+      };
+      alias = {
+        cleanup = "!git branch --merged | grep -v '\\*\\|main\\|master' | xargs -n 1 -r git branch -d";
+        history = "log --stat --oneline --graph --all";
+        root = "rev-parse --show-toplevel";
+        showx = "show --ext-diff";
+        logx = "log --ext-diff";
+      };
       branch.sort = "-committerdate";
       diff.ansible-vault.textconv = "ansible-vault view";
       diff.algorithm = "histogram";
@@ -39,7 +40,7 @@
       push.default = "current";
       push.autoSetupRemote = true;
       pull.rebase = true;
-      rerere.enabled = false;
+      rerere.enabled = true;
     };
   };
 }

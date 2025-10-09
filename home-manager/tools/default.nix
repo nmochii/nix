@@ -3,6 +3,7 @@
     ./age.nix
     ./asciinema.nix
     ./bat.nix
+    ./difftastic.nix
     ./dust.nix # du
     ./eza.nix
     ./fd.nix
@@ -14,15 +15,17 @@
     ./imagemagick.nix
     ./ouch.nix # compress / decompress
     ./pik.nix # interactive kill
+    ./posting.nix
     ./ripgrep.nix
     ./sd.nix
     ./ssh.nix
+    ./topgrade.nix
     ./tree.nix
     ./typst.nix
+    ./viu.nix
     ./yazi.nix
     ./youtube-tui.nix
     ./yt-dlp.nix
-    ./viu.nix
     ./zellij.nix
     ./zoxide.nix
   ];

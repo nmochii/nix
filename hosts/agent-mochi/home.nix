@@ -18,7 +18,6 @@
 
   home.sessionVariables = {
     EDITOR = user.editor;
-    PAGER = user.pager;
   };
 
   programs.home-manager.enable = true;
@@ -39,5 +38,6 @@
     ghostty.package = config.lib.nixGL.wrap pkgs.ghostty;
     firefox.package = config.lib.nixGL.wrap pkgs.firefox;
     chromium.package = config.lib.nixGL.wrap pkgs.chromium;
+    mpv.package = config.lib.nixGL.wrap pkgs.mpv;
   };
 }

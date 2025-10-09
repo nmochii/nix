@@ -1,5 +1,5 @@
 {
-  programs.mpv = {
+  programs.topgrade = {
     enable = true;
   };
 }

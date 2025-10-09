@@ -5,23 +5,34 @@ rec {
   email = "albertkhe@proton.me";
   shell = "fish";
   editor = "hx";
-  pager = "bat -p";
   gpgKey = "EDE4DFCE";
   vcs = "jj";
-  terminal = "kitty";
 
   bookmarks.firefox = [
     {
-      name = "hackernews";
-      url = "https://news.ycombinator.com/";
-    }
-    {
-      name = "reddit";
-      url = "https://www.reddit.com/";
-    }
-    {
       name = "perplexity";
       url = "https://www.perplexity.ai/";
+    }
+    {
+      name = "others";
+      bookmarks = [
+        {
+          name = "hackernews";
+          url = "https://news.ycombinator.com/";
+        }
+        {
+          name = "reddit";
+          url = "https://www.reddit.com/";
+        }
+        {
+          name = "terminal trove";
+          url = "https://terminaltrove.com/new/";
+        }
+        {
+          name = "github trends";
+          url = "https://github.com/nschloe/github-trends";
+        }
+      ];
     }
     {
       name = "nix";

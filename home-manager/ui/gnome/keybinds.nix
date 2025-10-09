@@ -1,9 +1,9 @@
-{user, ...}: {
+{ui, ...}: {
   dconf.settings = {
     "org/gnome/media-keys" = {};
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {
       name = "open preferred terminal";
-      command = user.terminal;
+      command = ui.terminal;
       binding = "<Super>Return";
     };
     "org/gnome/settings-daemon/plugins/media-keys" = {
