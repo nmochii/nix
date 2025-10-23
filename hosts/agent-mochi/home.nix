@@ -39,5 +39,6 @@
     firefox.package = config.lib.nixGL.wrap pkgs.firefox;
     chromium.package = config.lib.nixGL.wrap pkgs.chromium;
     mpv.package = config.lib.nixGL.wrap pkgs.mpv;
+    niri.package = config.lib.nixGL.wrap pkgs.niri;
   };
 }
