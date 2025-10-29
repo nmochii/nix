@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   imports = [
     ../apps/chromium.nix
     ../apps/firefox.nix
@@ -8,6 +8,10 @@
     ./dms.nix
     ./keybinds.nix
     ./prefs.nix
+  ];
+
+  home.packages = [
+    pkgs.xwayland-satellite
   ];
 
   programs.niri = {

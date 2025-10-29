@@ -4,7 +4,7 @@
       gaps = 8;
       focus-ring.width = 1;
       center-focused-column = "on-overflow";
-      default-column-width = {proportion = 1. / 2.;};
+      default-column-width = {proportion = 3. / 7.;};
     };
     window-rules = [
       {

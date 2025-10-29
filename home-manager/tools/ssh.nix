@@ -7,9 +7,6 @@
         setEnv = {
           TERM = "xterm-256color";
         };
-        extraOptions = {
-          StrictHostKeyChecking = "accept-new";
-        };
       };
       "github.com" = {
         extraOptions = {

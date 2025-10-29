@@ -3,10 +3,10 @@ rec {
   fullName = "Albert Khe";
   config = "/home/${name}/SSoT";
   email = "albertkhe@proton.me";
-  shell = "fish";
+  shell = "fish"; # fish | nu | bash
   editor = "hx";
   gpgKey = "EDE4DFCE";
-  vcs = "jj";
+  vcs = "jj"; # jj | git
 
   bookmarks.firefox = [
     {
@@ -31,6 +31,10 @@ rec {
         {
           name = "github trends";
           url = "https://github.com/nschloe/github-trends";
+        }
+        {
+          name = "deep wiki";
+          url = "https://deepwiki.com/";
         }
       ];
     }
