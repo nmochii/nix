@@ -22,6 +22,7 @@
         symbol = "[](bold purple)";
         format = "[$symbol ($output)]($style) ";
         disabled = user.vcs != "jj";
+        shell = ["sh" "--norc"];
       };
     };
   };

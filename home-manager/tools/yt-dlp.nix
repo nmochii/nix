@@ -7,6 +7,8 @@
 
   programs.yt-dlp = {
     enable = true;
-    extraConfig = "--default-search ytsearch";
+    extraConfig = ''
+      -f bestvideo[height<=1080]+bestaudio/best
+    '';
   };
 }

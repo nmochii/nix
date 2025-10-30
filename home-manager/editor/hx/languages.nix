@@ -37,7 +37,7 @@
       }
       {
         name = "html";
-        auto-format = true;
+        auto-format = false;
         language-servers = [
           "vscode-html-language-server"
           "emmet-ls"

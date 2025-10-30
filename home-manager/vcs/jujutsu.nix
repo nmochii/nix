@@ -45,18 +45,22 @@ in {
       revset-aliases = {
         "active(rev)" = "mutable()-::rev";
         current = "active(@)";
-        wip = "description('${wip-label}')";
-        private = "description('${private-label}')";
-        merge = "description('${merge-label}')";
+        wip = "description(substring:'${wip-label}')";
+        private = "description(substring:'${private-label}')";
+        merge = "description(substring:'${merge-label}')";
         blacklist = "wip | private | merge";
         "user(x)" = "author(x) | committer(x)";
       };
       revsets = {
         log-graph-prioritize = "coalesce(merge, trunk())";
       };
+      remotes = {
+        origin = {
+          auto-track-bookmarks = "glob:*";
+        };
+      };
       git = {
         auto-local-bookmark = false;
-        push-new-bookmarks = true;
         sign-on-push = user.gpgKey != "";
         private-commits = "blacklist";
         subprocess = true; # use git instread of libgit2
@@ -86,7 +90,7 @@ in {
         merge = ["new" "-m" merge-label "--no-edit"];
         merge-add = ["rebase" "-s" "merge & current" "-d" "merge- & current" "-d"];
         retrunk = ["rebase" "-s" "roots(mutable())" "-d" "trunk()"];
-        history = ["log" "-r" "::"];
+        history = ["log" "-r" "::" "--tool" "difft"];
         blame = ["file" "annotate"];
         fetch = ["git" "fetch"];
         push = ["git" "push" "-b"];

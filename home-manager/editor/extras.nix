@@ -9,7 +9,6 @@
     pyright
     bash-language-server
     gopls
-    rust-analyzer
     dockerfile-language-server
     docker-compose-language-service
     yaml-language-server

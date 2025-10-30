@@ -8,10 +8,6 @@ let
           url = "https://chat.olfeo.com/#all_messages";
         }
         {
-          name = "bluemind";
-          url = "https://mail.olfeo.com/webapp/mail/.t/821c300c-3110-a122-a76d-015efa5bb109:120803a0faa0eed9";
-        }
-        {
           name = "gather";
           url = "https://app.v2.gather.town/app/ekinops-olfeo-861c77f0-1261-46aa-ae2e-abeea378dae7";
         }
@@ -29,7 +25,7 @@ let
         }
         {
           name = "lucca";
-          url = "https://olfeo.ilucca.net/hello/";
+          url = "https://oneaccess.ilucca.net/hello/";
         }
         {
           name = "wiki";
@@ -56,15 +52,6 @@ let
   ];
 in {
   programs.firefox.profiles.default.bookmarks = {
-    force = true;
-    settings = [
-      {
-        toolbar = true;
-        inherit bookmarks;
-      }
-    ];
-  };
-  programs.librewolf.profiles.default.bookmarks = {
     force = true;
     settings = [
       {

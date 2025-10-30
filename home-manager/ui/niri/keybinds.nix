@@ -46,10 +46,10 @@
       "Mod+C".action.center-column = [];
       "Mod+Ctrl+C".action.center-visible-columns = [];
 
-      "Mod+Left".action.set-column-width = "-10%";
-      "Mod+Right".action.set-column-width = "+10%";
-      "Mod+Down".action.set-window-height = "+10%";
-      "Mod+Up".action.set-window-height = "-10%";
+      "Mod+Left".action.set-column-width = "-5%";
+      "Mod+Right".action.set-column-width = "+5%";
+      "Mod+Down".action.set-window-height = "+5%";
+      "Mod+Up".action.set-window-height = "-5%";
 
       "Mod+Shift+E".action.quit = [];
 

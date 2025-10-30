@@ -9,9 +9,10 @@
       auto-completion = true;
       auto-format = true;
       soft-wrap.enable = true;
+      end-of-line-diagnostics = "warning";
       inline-diagnostics = {
-        cursor-line = "error";
-        max-diagnostics = 2;
+        cursor-line = "hint";
+        max-diagnostics = 1;
       };
       lsp = {
         display-messages = true;

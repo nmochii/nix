@@ -29,9 +29,9 @@
     hms = "home-manager switch";
   };
 
-  nixGL.packages = nixgl.packages;
-  nixGL.defaultWrapper = "mesa";
-  nixGL.installScripts = ["mesa"];
+  targets.genericLinux.nixGL.packages = nixgl.packages;
+  targets.genericLinux.nixGL.defaultWrapper = "mesa";
+  targets.genericLinux.nixGL.installScripts = ["mesa"];
 
   programs = {
     kitty.package = config.lib.nixGL.wrap pkgs.kitty;

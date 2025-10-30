@@ -22,11 +22,12 @@
     ./topgrade.nix
     ./tree.nix
     ./typst.nix
-    ./viu.nix
+    ./viu.nix # image viewer
+    ./xleak.nix # excel
     ./yazi.nix
     ./youtube-tui.nix
     ./yt-dlp.nix
-    ./zellij.nix
+    ./zellij.nix # tmux like
     ./zoxide.nix
   ];
 
