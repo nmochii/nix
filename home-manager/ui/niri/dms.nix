@@ -1,5 +1,5 @@
 {
-  programs.dankMaterialShell = {
+  programs.dank-material-shell = {
     enable = true;
     niri = {
       enableKeybinds = false;
@@ -9,11 +9,6 @@
 
   programs.niri = {
     settings = {
-      spawn-at-startup = [
-        {
-          command = ["bash" "-c" "wl-paste --watch cliphist store &"];
-        }
-      ];
       binds = {
         "Mod+D" = {
           hotkey-overlay.title = "Toggle Application Launcher";

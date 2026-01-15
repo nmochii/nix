@@ -47,6 +47,10 @@ let
           name = "figma";
           url = "https://www.figma.com/design/VFgObCkbLboLhxvbDhBVig/Octopussy?node-id=346-3005&m=dev";
         }
+        {
+          name = "sciforma";
+          url = "https://sciforma.ekinops.com/";
+        }
       ];
     }
   ];

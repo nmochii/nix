@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ../apps/chromium.nix
+    ../apps/wl-clipboard.nix
     ../apps/firefox.nix
     ../apps/mpv.nix
     ./dms.nix

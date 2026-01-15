@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  user,
+  pkgs,
+  ...
+}: {
   imports = [
     ./age.nix
     ./asciinema.nix
@@ -25,7 +29,7 @@
     ./viu.nix # image viewer
     ./xleak.nix # excel
     ./yazi.nix
-    ./youtube-tui.nix
+    ./youtube.nix
     ./yt-dlp.nix
     ./zellij.nix # tmux like
     ./zoxide.nix
@@ -72,4 +76,7 @@
     FZF_ALT_C_COMMAND = "fd --type d";
     FZF_ALT_C_OPTS = "--preview '__show_file_or_dir_preview {}' --preview-window '75%'";
   };
+  home.sessionPath = [
+    "/home/${user.name}/.local/bin"
+  ];
 }

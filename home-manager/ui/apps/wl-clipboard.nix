@@ -1,5 +1,5 @@
 {pkgs, ...}: {
   home.packages = [
-    pkgs.youtube-tui
+    pkgs.wl-clipboard
   ];
 }

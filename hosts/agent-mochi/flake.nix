@@ -13,6 +13,10 @@
     };
     nixgl.url = "github:nix-community/nixGL";
     agenix.url = "github:ryantm/agenix";
+    youtube = {
+      url = "github:Benexl/yt-x";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -32,10 +36,12 @@
     agenix,
     niri,
     dankMaterialShell,
+    youtube,
     ...
   }: let
+    system = "x86_64-linux";
     pkgs = import nixpkgs {
-      system = "x86_64-linux";
+      inherit system;
       config.allowUnfree = true;
     };
     user = import ../../users/akhe.nix;
@@ -46,10 +52,12 @@
 
       extraSpecialArgs = {
         inherit
+          system
           user
           ui
           nixgl
           assets
+          youtube
           ;
       };
 
@@ -65,8 +73,8 @@
         ../../home-manager/vcs
         ./home.nix
         niri.homeModules.niri
-        dankMaterialShell.homeModules.dankMaterialShell.default
-        dankMaterialShell.homeModules.dankMaterialShell.niri
+        dankMaterialShell.homeModules.dank-material-shell
+        dankMaterialShell.homeModules.niri
       ];
     };
   };

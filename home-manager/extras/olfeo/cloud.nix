@@ -27,7 +27,7 @@
     [plugins]
     endpoint = awscli_plugin_endpoint
 
-    [profile ovh-nexus]
+    [profile default]
     region = gra
     s3 =
       endpoint_url = https://s3.gra.io.cloud.ovh.net
