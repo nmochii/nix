@@ -18,6 +18,7 @@
     ./hyperfine.nix # benchmark
     ./imagemagick.nix
     ./ouch.nix # compress / decompress
+    ./oyo.nix # another diff
     ./pik.nix # interactive kill
     ./posting.nix
     ./ripgrep.nix

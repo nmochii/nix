@@ -1,3 +1,3 @@
 {user, ...}: {
-  age.identityPaths = ["${user.config}/secrets/olfeo.age.txt"];
+  age.identityPaths = ["${user.SSoT}/secrets/olfeo.age.txt"];
 }

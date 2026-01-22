@@ -12,7 +12,7 @@
   '';
 
   home.shellAliases = {
-    "age:olfeo:decrypt" = "age --decrypt -i ${user.config}/secrets/olfeo.age.txt";
-    "age:olfeo:encrypt" = "age --encrypt -i ${user.config}/secrets/olfeo.age.txt";
+    "age:olfeo:decrypt" = "age --decrypt -i ${user.SSoT}/secrets/olfeo.age.txt";
+    "age:olfeo:encrypt" = "age --encrypt -i ${user.SSoT}/secrets/olfeo.age.txt";
   };
 }

@@ -1,7 +1,7 @@
 rec {
   name = "akhe";
   fullName = "Albert Khe";
-  config = "/home/${name}/SSoT";
+  SSoT = "/home/${name}/SSoT";
   email = "albertkhe@proton.me";
   shell = "fish"; # fish | nu | bash
   editor = "hx";

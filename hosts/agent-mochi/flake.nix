@@ -17,6 +17,10 @@
       url = "github:Benexl/yt-x";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    oyo = {
+      url = "github:ahkohd/oyo";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,6 +41,7 @@
     niri,
     dankMaterialShell,
     youtube,
+    oyo,
     ...
   }: let
     system = "x86_64-linux";
@@ -58,6 +63,7 @@
           nixgl
           assets
           youtube
+          oyo
           ;
       };
 

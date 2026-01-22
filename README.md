@@ -37,14 +37,6 @@ EOF
 ln -s /path/to/host/config $HOME/.config/home-manager
 ```
 
-7. Create the `~/SSoT` config dir
+7. Create the `~/SSoT/` directory
 8. Run `nix flake update` within the host config
 9. Run `home-manager switch`
-10. (optional) Install a desktop environement
-
-```sh
-# gnome
-sudo apt install gdm3
-sudo systemctl enable gdm
-sudo systemctl start gdm
-```

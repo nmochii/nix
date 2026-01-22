@@ -10,7 +10,7 @@
       };
       "github.com" = {
         extraOptions = {
-          IdentityFile = "${user.config}/ssh/github";
+          IdentityFile = "${user.SSoT}/ssh/github";
         };
       };
     };

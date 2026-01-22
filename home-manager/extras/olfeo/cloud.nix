@@ -1,14 +1,4 @@
-{
-  pkgs,
-  user,
-  ...
-}: {
-  home.packages = with pkgs; [
-    terraform
-    ansible
-  ];
-  programs.awscli.enable = true;
-
+{user, ...}: {
   age.secrets = {
     aws_credentials = {
       file = ../../../secrets/olfeo/aws_credentials.age;

@@ -5,7 +5,7 @@
 }: {
   programs.gpg = {
     enable = true;
-    homedir = "${user.config}/gnupg";
+    homedir = "${user.SSoT}/gnupg";
     settings = {
       keyserver = "keys.openpgp.org";
     };

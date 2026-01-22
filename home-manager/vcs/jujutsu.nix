@@ -36,12 +36,6 @@ in {
           "template-aliases.'format_timestamp(ts)'='ts.local().ago()'"
         ];
       };
-      merge-tools = {
-        difft = {
-          program = "difft";
-          diff-args = ["--color=always" "$left" "$right"];
-        };
-      };
       revset-aliases = {
         "active(rev)" = "mutable()-::rev";
         current = "active(@)";
@@ -90,13 +84,11 @@ in {
         merge = ["new" "-m" merge-label "--no-edit"];
         merge-add = ["rebase" "-s" "merge & current" "-d" "merge- & current" "-d"];
         retrunk = ["rebase" "-s" "roots(mutable())" "-d" "trunk()"];
-        history = ["log" "-r" "::" "--tool" "difft"];
         blame = ["file" "annotate"];
         fetch = ["git" "fetch"];
         push = ["git" "push" "-b"];
         clone = ["git" "clone"];
         init = ["git" "init"];
-        difft = ["diff" "--tool" "difft"];
       };
     };
   };
