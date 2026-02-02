@@ -1,4 +1,10 @@
-{user, ...}: {
+{
+  config,
+  lib,
+  user,
+  ...
+}:
+lib.mkIf config.modules.tools.enable {
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;

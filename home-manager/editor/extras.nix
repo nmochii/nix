@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+lib.mkIf config.modules.editor.enable {
   home.packages = with pkgs; [
     # lsp
     tinymist # typst

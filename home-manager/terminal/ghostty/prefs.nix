@@ -1,4 +1,10 @@
-{user, ...}: {
+{
+  config,
+  lib,
+  user,
+  ...
+}:
+lib.mkIf config.modules.terminal.enable {
   programs.ghostty.settings = {
     font-family = "Iosevka Nerd Font";
     font-size = 14;

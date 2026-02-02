@@ -1,4 +1,9 @@
 {
+  config,
+  lib,
+  ...
+}:
+lib.mkIf config.modules.editor.enable {
   programs.helix.settings = {
     editor = {
       line-number = "relative";

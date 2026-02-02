@@ -1,4 +1,10 @@
-{user, ...}: {
+{
+  config,
+  lib,
+  user,
+  ...
+}:
+lib.mkIf config.modules.terminal.enable {
   home.shellAliases = {
     icat = "kitten icat";
   };

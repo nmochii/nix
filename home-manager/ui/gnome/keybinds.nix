@@ -1,4 +1,10 @@
-{ui, ...}: {
+{
+  config,
+  lib,
+  ui,
+  ...
+}:
+lib.mkIf config.modules.ui.enable {
   dconf.settings = {
     "org/gnome/media-keys" = {};
     "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0" = {

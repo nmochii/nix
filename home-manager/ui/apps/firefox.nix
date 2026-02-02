@@ -1,4 +1,10 @@
-{user, ...}: {
+{
+  config,
+  lib,
+  user,
+  ...
+}:
+lib.mkIf config.modules.ui.enable {
   programs.firefox = {
     enable = true;
     policies = {
@@ -30,11 +36,11 @@
           "startpage" = {
             urls = [
               {
-                template = "https://www.startpage.com/rvd/search?query={searchTerms}";
+                template = "https://www.startpage.com/do/search?query={searchTerms}";
               }
             ];
-            iconUpdateURL = "https://www.startpage.com/favicon.ico";
-            shortcut = "s"; # Alias like @d for quick searches
+            icon = "https://www.startpage.com/favicon.ico";
+            shortcut = "s";
           };
         };
         order = [

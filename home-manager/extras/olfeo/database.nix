@@ -1,12 +1,12 @@
 {
+  config,
   pkgs,
-  user,
   ...
 }: {
   home.packages = [pkgs.postgresql];
   age.secrets.pgpass = {
     file = ../../../secrets/olfeo/pgpass.age;
-    path = "/home/${user.name}/.pgpass";
+    path = "${config.home.homeDirectory}/.pgpass";
   };
 
   programs.pgcli = {

@@ -1,4 +1,9 @@
 {
+  config,
+  lib,
+  ...
+}:
+lib.mkIf config.modules.shell.enable {
   home.shell.enableNushellIntegration = true;
 
   programs.nushell = {

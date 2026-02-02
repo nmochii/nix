@@ -1,5 +1,10 @@
-{user, ...}: {
-  programs.bash.enable = true;
+{
+  config,
+  lib,
+  user,
+  ...
+}:
+assert builtins.elem user.shell ["fish" "nu" "bash"]; {
   imports = [
     ./carapace.nix
     ./direnv.nix
@@ -7,8 +12,11 @@
     ./starship.nix
   ];
 
-  home.shellAliases = {
-    "nix:shell" = "nix repl --expr 'import <nixpkgs> {}'";
-    n = "nix-shell --run ${user.shell}";
+  config = lib.mkIf config.modules.shell.enable {
+    programs.bash.enable = true;
+    home.shellAliases = {
+      "nix:shell" = "nix repl --expr 'import <nixpkgs> {}'";
+      n = "nix-shell --run ${user.shell}";
+    };
   };
 }

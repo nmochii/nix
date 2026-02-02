@@ -1,4 +1,10 @@
-{user, ...}: {
+{
+  config,
+  lib,
+  user,
+  ...
+}:
+lib.mkIf config.modules.tools.enable {
   programs.eza = {
     enable = user.shell != "nu";
     git = true;
@@ -12,7 +18,7 @@
     }
     else {};
 
-  programs.fish.shellAbbrs = {
+  programs.fish.shellAbbrs = lib.mkIf (user.shell == "fish") {
     ls = "eza";
     sl = "eza";
     la = "eza -lag";

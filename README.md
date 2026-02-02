@@ -1,6 +1,6 @@
-# Home Manager
+# Nix
 
-## Installation (standalone)
+## Installation (standalone home-manager)
 
 Requirements:
 - sudo
@@ -29,14 +29,24 @@ experimental-features = nix-command flakes
 EOF
 ```
 
-4. Create a host config
-5. Create a user config
-6. Link home-manager to the host config
+4. Clone this repo and create the `~/SSoT/` directory
+5. Create a host config under `hosts/`
+6. Create a user config under `users/`
+7. Register the host in `flake.nix`
+8. Run `nix flake update` at the repo root
+9. Run `home-manager switch --flake .`
 
-```sh
-ln -s /path/to/host/config $HOME/.config/home-manager
+## Adding a new host
+
+Create a directory under `hosts/<hostname>/` with:
+- `default.nix` - imports external modules and host-specific config
+- `home.nix` - home-manager settings, module enables
+- `ui.nix` - UI preferences (terminal, interface, wallpaper)
+
+Register it in the top-level `flake.nix`:
+```nix
+homeConfigurations."user@hostname" = mkHome {
+  hostModule = ./hosts/hostname;
+  user = import ./users/user.nix;
+};
 ```
-
-7. Create the `~/SSoT/` directory
-8. Run `nix flake update` within the host config
-9. Run `home-manager switch`

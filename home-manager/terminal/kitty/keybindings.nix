@@ -1,4 +1,9 @@
 {
+  config,
+  lib,
+  ...
+}:
+lib.mkIf config.modules.terminal.enable {
   programs.kitty = {
     keybindings = {
       # tabs

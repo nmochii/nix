@@ -1,5 +1,7 @@
-rec {
+let
   name = "akhe";
+in {
+  inherit name;
   fullName = "Albert Khe";
   SSoT = "/home/${name}/SSoT";
   email = "albertkhe@proton.me";
@@ -14,27 +16,31 @@ rec {
       url = "https://www.perplexity.ai/";
     }
     {
-      name = "others";
+      name = "home";
       bookmarks = [
         {
-          name = "hackernews";
-          url = "https://news.ycombinator.com/";
+          name = "tailscale";
+          url = "https://login.tailscale.com/admin/machines";
         }
         {
-          name = "reddit";
-          url = "https://www.reddit.com/";
+          name = "pve";
+          url = "https://pve.mochi.home/";
         }
         {
-          name = "terminal trove";
-          url = "https://terminaltrove.com/new/";
+          name = "dns";
+          url = "https://dns.mochi.home/";
         }
         {
-          name = "github trends";
-          url = "https://github.com/nschloe/github-trends";
+          name = "papers";
+          url = "https://papers.mochi.home/";
         }
         {
-          name = "deep wiki";
-          url = "https://deepwiki.com/";
+          name = "vault";
+          url = "https://vault.mochi.home/";
+        }
+        {
+          name = "medias";
+          url = "https://medias.mochi.home/";
         }
       ];
     }
@@ -73,6 +79,31 @@ rec {
         {
           name = "ai";
           url = "https://lumo.proton.me/guest";
+        }
+      ];
+    }
+    {
+      name = "others";
+      bookmarks = [
+        {
+          name = "hackernews";
+          url = "https://news.ycombinator.com/";
+        }
+        {
+          name = "reddit";
+          url = "https://www.reddit.com/";
+        }
+        {
+          name = "terminal trove";
+          url = "https://terminaltrove.com/new/";
+        }
+        {
+          name = "github trends";
+          url = "https://github.com/nschloe/github-trends";
+        }
+        {
+          name = "deep wiki";
+          url = "https://deepwiki.com/";
         }
       ];
     }

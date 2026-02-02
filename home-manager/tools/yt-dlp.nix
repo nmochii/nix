@@ -1,4 +1,9 @@
 {
+  config,
+  lib,
+  ...
+}:
+lib.mkIf config.modules.tools.enable {
   home.shellAliases = {
     "dl:mp3" = "yt-dlp -t mp3";
     "dl:mp4" = "yt-dlp -t mp4";

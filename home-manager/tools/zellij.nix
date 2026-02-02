@@ -1,4 +1,9 @@
-{lib, ...}: {
+{
+  config,
+  lib,
+  ...
+}:
+lib.mkIf config.modules.tools.enable {
   programs.zellij = {
     enable = true;
     settings = {

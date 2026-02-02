@@ -1,4 +1,10 @@
-{ui, ...}: {
+{
+  config,
+  lib,
+  ui,
+  ...
+}:
+lib.mkIf config.modules.ui.enable {
   programs.niri.settings = {
     hotkey-overlay.hide-not-bound = true;
     binds = {

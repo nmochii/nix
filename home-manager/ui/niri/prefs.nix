@@ -1,4 +1,10 @@
-{ui, ...}: {
+{
+  config,
+  lib,
+  ui,
+  ...
+}:
+lib.mkIf config.modules.ui.enable {
   programs.niri.settings = {
     layout = {
       gaps = 8;
@@ -29,40 +35,6 @@
       };
       touchpad.natural-scroll = false;
     };
-    outputs = {
-      DP-3 = {
-        position = {
-          x = 0;
-          y = 0;
-        };
-      };
-      DP-4 = {
-        position = {
-          x = 0;
-          y = 0;
-        };
-      };
-      DP-5 = {
-        position = {
-          x = 1920;
-          y = -545;
-        };
-        transform.rotation = 90;
-      };
-      DP-7 = {
-        position = {
-          x = 1920;
-          y = -545;
-        };
-        transform.rotation = 90;
-      };
-      eDP-1 = {
-        position = {
-          x = 3000;
-          y = 0;
-        };
-        scale = 1.2;
-      };
-    };
+    outputs = ui.monitors;
   };
 }

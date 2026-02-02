@@ -1,14 +1,19 @@
-{user, ...}: {
+{
+  config,
+  lib,
+  user,
+  ...
+}:
+lib.mkIf config.modules.vcs.enable {
   programs.git = {
     enable = true;
-    signing = (
+    signing =
       if user.gpgKey == ""
       then {}
       else {
         key = user.gpgKey;
         signByDefault = true;
-      }
-    );
+      };
     ignores = [
       "node_modules"
       ".cache"

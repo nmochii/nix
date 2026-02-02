@@ -1,4 +1,9 @@
 {
+  config,
+  lib,
+  ...
+}:
+lib.mkIf config.modules.ui.enable {
   programs.dank-material-shell = {
     enable = true;
     niri = {

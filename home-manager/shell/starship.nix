@@ -1,8 +1,14 @@
-{user, ...}: {
+{
+  config,
+  lib,
+  user,
+  ...
+}:
+lib.mkIf config.modules.shell.enable {
   programs.starship = {
     enable = true;
     settings = {
-      add_newline = true;
+      add_newline = false;
       format = "$nix_shell$directory$jobs$character";
       right_format = "$python$git_branch\${custom.jj}";
       directory.truncation_length = 3;
@@ -19,10 +25,10 @@
       custom.jj = {
         command = "__jj_prompt";
         when = "jj root --ignore-working-copy --quiet";
-        symbol = "[](bold purple)";
+        symbol = "[](bold purple)";
         format = "[$symbol ($output)]($style) ";
         disabled = user.vcs != "jj";
-        shell = ["sh" "--norc"];
+        shell = ["sh" "--norc" "--noprofile"];
       };
     };
   };

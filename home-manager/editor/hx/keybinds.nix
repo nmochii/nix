@@ -1,4 +1,9 @@
 {
+  config,
+  lib,
+  ...
+}:
+lib.mkIf config.modules.editor.enable {
   programs.helix.settings = {
     keys.insert = {
       j.k = "normal_mode";

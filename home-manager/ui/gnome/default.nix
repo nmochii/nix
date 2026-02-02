@@ -1,14 +1,15 @@
 {
+  config,
+  lib,
+  ...
+}: {
   imports = [
-    ../apps/chromium.nix
-    ../apps/clipse.nix
-    ../apps/firefox.nix
-    ../apps/mpv.nix
-    ../apps/office.nix
     ./keybinds.nix
     ./prefs.nix
   ];
 
-  programs.gnome-shell.enable = true;
-  dconf.enable = true;
+  config = lib.mkIf config.modules.ui.enable {
+    programs.gnome-shell.enable = true;
+    dconf.enable = true;
+  };
 }

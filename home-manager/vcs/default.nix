@@ -1,19 +1,17 @@
-{user, ...}: {
+{user, ...}:
+assert builtins.elem user.vcs ["jj" "git"]; {
   imports =
     [
       ./git.nix
+      ./gitui.nix
+      ./meld.nix
+      ./tig.nix
     ]
     ++ (
       if user.vcs == "jj"
       then [
-        ./jujutsu.nix
+        ./jujutsu
         ./jjui.nix
-      ]
-      else if user.vcs == "git"
-      then [
-        ./gitui.nix
-        ./meld.nix
-        ./tig.nix
       ]
       else []
     );

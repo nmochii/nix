@@ -1,4 +1,10 @@
-{pkgs, ...}: {
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+lib.mkIf config.modules.vcs.enable {
   programs.jjui = {
     enable = true;
     settings = {
@@ -11,8 +17,7 @@
         expand = ["="];
         shrink = ["-"];
       };
-      preview = {
-        # add difft
+      preview = lib.mkIf config.modules.tools.enable {
         revision_command = ["show" "--color" "always" "-r" "$change_id" "--tool" "difft"];
         oplog_command = ["op" "show" "$operation_id" "--color" "always" "--tool" "difft"];
         file_command = ["diff" "--color" "always" "-r" "$change_id" "$file" "--tool" "difft"];

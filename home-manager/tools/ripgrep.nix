@@ -1,4 +1,10 @@
 {
+  config,
+  lib,
+  user,
+  ...
+}:
+lib.mkIf config.modules.tools.enable {
   programs.ripgrep = {
     enable = true;
     arguments = [
@@ -19,10 +25,8 @@
     ];
   };
 
-  programs.fish = {
-    shellAbbrs = {
-      rgi = "rg -i";
-      rgs = "rg -S";
-    };
+  programs.fish.shellAbbrs = lib.mkIf (user.shell == "fish") {
+    rgi = "rg -i";
+    rgs = "rg -S";
   };
 }

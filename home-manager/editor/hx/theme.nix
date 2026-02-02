@@ -1,4 +1,9 @@
 {
+  config,
+  lib,
+  ...
+}:
+lib.mkIf config.modules.editor.enable {
   programs.helix = {
     settings.theme = "custom-night";
     themes = {

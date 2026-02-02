@@ -1,8 +1,11 @@
 {
+  config,
+  lib,
   pkgs,
   user,
   ...
-}: {
+}:
+lib.mkIf config.modules.tools.enable {
   programs.gpg = {
     enable = true;
     homedir = "${user.SSoT}/gnupg";
