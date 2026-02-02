@@ -25,8 +25,20 @@
       };
       search = {
         force = true;
-        default = "ddg";
+        default = "startpage";
+        engines = {
+          "startpage" = {
+            urls = [
+              {
+                template = "https://www.startpage.com/rvd/search?query={searchTerms}";
+              }
+            ];
+            iconUpdateURL = "https://www.startpage.com/favicon.ico";
+            shortcut = "s"; # Alias like @d for quick searches
+          };
+        };
         order = [
+          "startpage"
           "ddg"
           "wiki"
           "google"
