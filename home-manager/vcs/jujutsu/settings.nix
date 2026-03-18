@@ -29,11 +29,6 @@ lib.mkIf config.modules.vcs.enable {
         "template-aliases.'format_timestamp(ts)'='ts.local().ago()'"
       ];
     };
-    remotes = {
-      origin = {
-        auto-track-bookmarks = "glob:*";
-      };
-    };
     git = {
       auto-local-bookmark = false;
       sign-on-push = user.gpgKey != "";

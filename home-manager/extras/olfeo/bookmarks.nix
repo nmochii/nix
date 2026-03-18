@@ -49,7 +49,7 @@ let
         }
         {
           name = "sciforma";
-          url = "https://sciforma.ekinops.com/";
+          url = "https://ekinops.sciforma.net/sciforma/";
         }
       ];
     }

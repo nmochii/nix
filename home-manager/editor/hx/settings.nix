@@ -14,9 +14,9 @@ lib.mkIf config.modules.editor.enable {
       auto-completion = true;
       auto-format = true;
       soft-wrap.enable = true;
-      end-of-line-diagnostics = "warning";
+      end-of-line-diagnostics = "hint";
       inline-diagnostics = {
-        cursor-line = "hint";
+        cursor-line = "warning";
         max-diagnostics = 1;
       };
       lsp = {

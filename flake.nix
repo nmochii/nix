@@ -11,14 +11,6 @@
     };
     nixgl.url = "github:nix-community/nixGL";
     agenix.url = "github:ryantm/agenix";
-    youtube = {
-      url = "github:Benexl/yt-x";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    oyo = {
-      url = "github:ahkohd/oyo";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     niri = {
       url = "github:sodiboo/niri-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -34,36 +26,24 @@
     home-manager,
     ...
   }: let
-    mkHome = {
-      hostModule,
-      user,
-      system ? "x86_64-linux",
-    }:
-      home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          inherit system;
-          config.allowUnfree = true;
-        };
-        extraSpecialArgs = let
-          uiConf = "${hostModule}/ui.nix";
-        in {
-          inherit inputs system user;
-          ui =
-            if builtins.pathExists uiConf
-            then import uiConf
-            else {};
-        };
-        modules = [
-          ./home-manager
-          hostModule
-        ];
-      };
+    mkHome = import ./lib/mkHome.nix {
+      inherit home-manager nixpkgs inputs;
+    };
+    mkSystem = import ./lib/mkSystem.nix {
+      inherit nixpkgs inputs;
+    };
   in {
     homeConfigurations = {
       "akhe@agent-mochi" = mkHome {
         hostModule = ./hosts/agent-mochi;
+        system = "x86_64-linux";
         user = import ./users/akhe.nix;
       };
+    };
+    nixosConfigurations.virtual-mochi = mkSystem {
+      hostModule = ./hosts/virtual-mochi;
+      system = "x86_64-linux";
+      user = import ./users/akhe.nix;
     };
   };
 }

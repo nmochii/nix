@@ -1,52 +1,66 @@
 # Nix
 
-## Installation (standalone home-manager)
+Personal NixOS and home-manager configurations.
 
-Requirements:
-- sudo
+## Two deployment modes
 
-Steps:
+### Standalone home-manager (`mkHome`)
+
+For non-NixOS hosts. Manages user environment only.
+
+```nix
+homeConfigurations."user@hostname" = mkHome {
+  hostModule = ./hosts/hostname;
+  system = "x86_64-linux";
+  user = import ./users/user.nix;
+};
+```
+
+Apply with:
+
+```sh
+home-manager switch --flake .
+```
+
+### Full NixOS system (`mkSystem`)
+
+Manages the entire system including users, locale, and home-manager.
+
+```nix
+nixosConfigurations.hostname = mkSystem {
+  hostModule = ./hosts/hostname;
+  system = "x86_64-linux";
+  user = import ./users/user.nix;
+};
+```
+
+Apply with:
+
+```sh
+sudo nixos-rebuild switch --flake .
+```
+
+## Adding a new host
+
+1. Create `hosts/<hostname>/` with:
+   - `default.nix` — host module (hardware, services, packages)
+   - `home.nix` — enables home-manager modules (`editor`, `shell`, `tools`, …)
+   - `ui.nix` — UI preferences (optional, only needed if `ui.enable = true`)
+2. Create a user config in `users/`
+3. Register the host in `flake.nix` under `homeConfigurations` or `nixosConfigurations`
+4. Run `nix flake update` then apply
+
+## Bootstrap (non-NixOS)
+
 1. Install nix
 
 ```sh
 sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --no-daemon
 ```
 
-2. Install home-manager
+2. Enable flakes
 
 ```sh
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-nix-channel --update
-nix-shell '<home-manager>' -A install
-```
-
-3. Activate experimental nix command flake
-
-```sh
-sudo tee /etc/nix/nix.conf -a << EOF
-warn-dirty = false
-experimental-features = nix-command flakes
-EOF
-```
-
-4. Clone this repo and create the `~/SSoT/` directory
-5. Create a host config under `hosts/`
-6. Create a user config under `users/`
-7. Register the host in `flake.nix`
-8. Run `nix flake update` at the repo root
-9. Run `home-manager switch --flake .`
-
-## Adding a new host
-
-Create a directory under `hosts/<hostname>/` with:
-- `default.nix` - imports external modules and host-specific config
-- `home.nix` - home-manager settings, module enables
-- `ui.nix` - UI preferences (terminal, interface, wallpaper)
-
-Register it in the top-level `flake.nix`:
-```nix
-homeConfigurations."user@hostname" = mkHome {
-  hostModule = ./hosts/hostname;
-  user = import ./users/user.nix;
-};
+mkdir -p ~/.config/nix
+echo 'experimental-features = nix-command flakes' >> ~/.config/nix/nix.conf
 ```

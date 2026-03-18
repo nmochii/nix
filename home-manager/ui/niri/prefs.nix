@@ -35,6 +35,5 @@ lib.mkIf config.modules.ui.enable {
       };
       touchpad.natural-scroll = false;
     };
-    outputs = ui.monitors;
   };
 }

@@ -2,9 +2,10 @@
   config,
   inputs,
   pkgs,
-  user,
   ...
 }: {
+  home.stateVersion = "25.05";
+
   modules = {
     editor.enable = true;
     shell.enable = true;
@@ -14,29 +15,14 @@
     vcs.enable = true;
   };
 
-  home.username = user.name;
-  home.homeDirectory = "/home/${user.name}";
-
-  home.stateVersion = "25.05"; # do not touch
-
   home.keyboard = {
     layout = "us";
     variant = "intl";
     options = ["ctrl:nocaps"];
   };
 
-  home.sessionVariables = {
-    EDITOR = user.editor;
-  };
-
-  programs.home-manager.enable = true;
-
   targets.genericLinux.enable = true;
   xdg.mime.enable = true;
-
-  home.shellAliases = {
-    hms = "home-manager switch";
-  };
 
   targets.genericLinux.nixGL.packages = inputs.nixgl.packages;
   targets.genericLinux.nixGL.defaultWrapper = "mesa";

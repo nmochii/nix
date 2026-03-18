@@ -32,12 +32,10 @@ in
         '';
       };
       aliases = {
-        ui = ["util" "exec" "__jj_ui"];
-        tug = ["util" "exec" "__jj_tug"];
         nn = ["new" "--no-edit"];
         private = ["new" "-m" private-label];
         wip = ["new" "-m" wip-label];
-        merge = ["new" "-m" merge-label "--no-edit"];
+        merge = ["new" "-m" "merge-label"];
         merge-add = ["rebase" "-s" "merge & current" "-d" "merge- & current" "-d"];
         retrunk = ["rebase" "-s" "roots(mutable())" "-d" "trunk()"];
         blame = ["file" "annotate"];
@@ -45,6 +43,10 @@ in
         push = ["git" "push" "-b"];
         clone = ["git" "clone"];
         init = ["git" "init"];
+        ui = ["util" "exec" "__jj_ui"];
+        tug = ["util" "exec" "__jj_tug"];
+        branch = ["util" "exec" "__jj_branch" "--"];
+        pre-commit = ["util" "exec" "__jj_pre_commit"];
       };
     };
   }

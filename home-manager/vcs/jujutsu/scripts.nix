@@ -17,10 +17,23 @@ in
         "
       '')
       (pkgs.writeShellScriptBin "__jj_tug" ''
-        bookmarks=$(jj bookmark list -r current | cut -d: -f1 | grep -v @)
+        bookmarks=$(jj bookmark list -r current | cut -d: -f1 | grep -Ev '@|main|master')
         for bookmark in $bookmarks; do
-          jj bookmark move --ignore-working-copy --from "$bookmark" --to "heads(bookmarks('$bookmark')::roots(merge- | @-))" 2> /dev/null
+          jj bookmark move --ignore-working-copy --from "$bookmark" --to "latest(bookmarks('$bookmark')::@ ~ (empty() | wip | merge))" 2> /dev/null
         done
+      '')
+      (pkgs.writeShellScriptBin "__jj_branch" ''
+        jj log -r "@ | wip" --ignore-working-copy | grep -q . \
+        && jj new -r "trunk()" "$@" \
+        && jj rebase -s merge -d "merge- | @" \
+        && jj edit -r wip
+      '')
+      (pkgs.writeShellScriptBin "__jj_pre_commit" ''
+        which pre-commit || exit 1
+        jj new \
+          && pre-commit run --files $(jj diff -r "trunk()::@" --name-only --no-pager --ignore-working-copy) \
+          && jj edit @- --ignore-working-copy \
+          || jj desc -m "pre-commit"
       '')
     ];
   }

@@ -19,7 +19,6 @@
     ./imagemagick.nix
     ./jq.nix
     ./ouch.nix # compress / decompress
-    ./oyo.nix # another diff
     ./pik.nix # interactive kill
     ./posting.nix
     ./ripgrep.nix
@@ -31,7 +30,6 @@
     ./viu.nix # image viewer
     ./xleak.nix # excel
     ./yazi.nix
-    ./youtube.nix
     ./yt-dlp.nix
     ./zellij.nix # tmux like
     ./zoxide.nix
