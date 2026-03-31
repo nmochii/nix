@@ -37,7 +37,7 @@ in
         wip = ["new" "-m" wip-label];
         merge = ["new" "-m" "merge-label"];
         merge-add = ["rebase" "-s" "merge & current" "-d" "merge- & current" "-d"];
-        retrunk = ["rebase" "-s" "roots(mutable())" "-d" "trunk()"];
+        retrunk = ["rebase" "-s" "roots(mutable())" "-d" "trunk()" "--simplify-parents"];
         blame = ["file" "annotate"];
         fetch = ["git" "fetch"];
         push = ["git" "push" "-b"];

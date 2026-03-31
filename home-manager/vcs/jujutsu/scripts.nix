@@ -19,7 +19,7 @@ in
       (pkgs.writeShellScriptBin "__jj_tug" ''
         bookmarks=$(jj bookmark list -r current | cut -d: -f1 | grep -Ev '@|main|master')
         for bookmark in $bookmarks; do
-          jj bookmark move --ignore-working-copy --from "$bookmark" --to "latest(bookmarks('$bookmark')::@ ~ (empty() | wip | merge))" 2> /dev/null
+          jj bookmark move --ignore-working-copy --from "$bookmark" --to "latest(bookmarks('$bookmark')::@ ~ blacklist)" 2> /dev/null
         done
       '')
       (pkgs.writeShellScriptBin "__jj_branch" ''
