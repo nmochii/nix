@@ -12,7 +12,6 @@
 
   networking = {
     hostName = "virtual-mochi";
-    useDHCP = true;
     firewall.enable = false;
     nameservers = ["1.1.1.1"];
   };
@@ -30,7 +29,7 @@
     xserver.xkb = {
       layout = "us";
       variant = "intl";
-      options = ["ctrl:nocaps"];
+      options = "ctrl:nocaps";
     };
   };
   nixpkgs.config.allowUnfree = true;

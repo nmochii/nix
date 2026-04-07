@@ -10,7 +10,7 @@ lib.mkIf config.modules.terminal.enable {
     font-size = 14;
     maximize = true;
     window-decoration = false;
-    theme = "Catppuccin Mocha";
+    theme = "Solarized Dark Higher Contrast";
     command = user.shell;
     mouse-hide-while-typing = true;
     mouse-scroll-multiplier = 1;

@@ -1,7 +1,7 @@
 {
   inputs = {
     assets = {
-      url = "github:nmochii/nix?dir=assets";
+      url = "github:nmochii/nix/assets?dir=assets";
       flake = false;
     };
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";

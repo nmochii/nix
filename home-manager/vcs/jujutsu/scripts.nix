@@ -23,10 +23,7 @@ in
         done
       '')
       (pkgs.writeShellScriptBin "__jj_branch" ''
-        jj log -r "@ | wip" --ignore-working-copy | grep -q . \
-        && jj new -r "trunk()" "$@" \
-        && jj rebase -s merge -d "merge- | @" \
-        && jj edit -r wip
+        jj new --insert-after 'trunk()' --insert-before merge --no-edit "$@"
       '')
       (pkgs.writeShellScriptBin "__jj_pre_commit" ''
         which pre-commit || exit 1

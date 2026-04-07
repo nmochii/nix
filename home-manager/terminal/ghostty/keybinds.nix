@@ -26,6 +26,8 @@ lib.mkIf config.modules.terminal.enable {
       "super+j=goto_split:down"
       "super+h=goto_split:left"
       "super+k=goto_split:up"
+      # splits
+      "super+z=toggle_split_zoom"
       # scroll
       "super+left=jump_to_prompt:-1"
       "super+right=jump_to_prompt:1"

@@ -25,6 +25,6 @@ lib.mkIf config.modules.editor.enable {
     # fmt
     alejandra # nix
     yamlfmt
-    nodePackages.prettier
+    prettier
   ];
 }
