@@ -6,6 +6,7 @@
 lib.mkIf config.modules.terminal.enable {
   programs.ghostty.settings = {
     keybind = [
+      "super+shift+/=toggle_command_palette"
       # tabs
       "super+t=new_tab"
       "super+shift+t=toggle_tab_overview"

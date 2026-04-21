@@ -11,5 +11,8 @@
 
   config = lib.mkIf config.modules.vcs.enable {
     programs.jujutsu.enable = true;
+    home.shellAliases = {
+      "j" = "jj";
+    };
   };
 }

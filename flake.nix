@@ -12,11 +12,11 @@
     nixgl.url = "github:nix-community/nixGL";
     agenix.url = "github:ryantm/agenix";
     niri = {
-      url = "github:sodiboo/niri-flake";
+      url = "github:sodiboo/niri-flake/32bed686f4fd8274a5e4a58d071687a74e19821e";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     dankMaterialShell = {
-      url = "github:AvengeMedia/DankMaterialShell";
+      url = "github:AvengeMedia/DankMaterialShell/9139fd2fb1d8e381f6eb8d0f84f20d59575f0fb2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };

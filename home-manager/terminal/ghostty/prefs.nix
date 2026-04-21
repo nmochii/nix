@@ -16,5 +16,6 @@ lib.mkIf config.modules.terminal.enable {
     mouse-scroll-multiplier = 1;
     background-opacity = 0.90;
     unfocused-split-opacity = 0.70;
+    tab-inherit-working-directory = false;
   };
 }

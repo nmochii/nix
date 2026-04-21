@@ -27,7 +27,7 @@ lib.mkIf config.modules.editor.enable {
         snippets = true;
       };
       cursorline = true;
-      cursorcolumn = true;
+      cursorcolumn = false;
       cursor-shape = {
         insert = "bar";
         normal = "block";
