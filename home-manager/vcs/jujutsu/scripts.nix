@@ -17,7 +17,11 @@ in
         "
       '')
       (pkgs.writeShellScriptBin "__jj_tug" ''
-        bookmarks=$(jj bookmark list -r current | cut -d: -f1 | grep -Ev '@|main|master')
+        if [[ $# = 0 ]]; then
+          bookmarks=$(jj bookmark list -r current | cut -d: -f1 | grep -Ev '@|main|master')
+        else
+          bookmarks=$(jj bookmark list -r current | cut -d: -f1 | grep "$*" )
+        fi
         for bookmark in $bookmarks; do
           jj bookmark move --ignore-working-copy --from "$bookmark" --to "latest(bookmarks('$bookmark')::@ ~ blacklist)" 2> /dev/null
         done

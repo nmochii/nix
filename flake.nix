@@ -19,6 +19,12 @@
       url = "github:AvengeMedia/DankMaterialShell/9139fd2fb1d8e381f6eb8d0f84f20d59575f0fb2";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    purple = {
+      url = "github:erickochen/purple/d115c9c8e9f2a6278dd55bdf8d03e81ad692ae6f";
+    };
+    clin = {
+      url = "github:reekta92/clin-rs/3acb07932a61fbd3b1483b18891fbef61d47ef8e";
+    };
   };
 
   outputs = inputs @ {

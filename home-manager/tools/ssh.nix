@@ -1,4 +1,6 @@
 {
+  inputs,
+  system,
   config,
   lib,
   user,
@@ -8,17 +10,23 @@ lib.mkIf config.modules.tools.enable {
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    matchBlocks = {
+    settings = {
       "*" = {
-        setEnv = {
-          TERM = "xterm-256color";
-        };
+        setEnv = ''
+          TERM=xterm-256color
+        '';
       };
       "github.com" = {
-        extraOptions = {
-          IdentityFile = "${user.SSoT}/ssh/github";
-        };
+        IdentityFile = "${user.SSoT}/ssh/github";
       };
     };
+  };
+
+  home.packages = [
+    inputs.purple.packages.${system}.default
+  ];
+
+  home.shellAliases = {
+    "ssh.ui" = "purple --config ${user.SSoT}/ssh/purple/conf";
   };
 }

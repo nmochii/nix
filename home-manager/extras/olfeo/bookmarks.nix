@@ -40,6 +40,10 @@ let
           url = "https://api.oem.olfeo.eu/login";
         }
         {
+          name = "feedboard";
+          url = "https://feedboard.lan.olfeo.com";
+        }
+        {
           name = "grafana";
           url = "https://metrics.tools.ovh.olfeo.com/admin";
         }

@@ -13,7 +13,7 @@ lib.mkIf config.modules.terminal.enable {
     theme = "Solarized Dark Higher Contrast";
     command = user.shell;
     mouse-hide-while-typing = true;
-    mouse-scroll-multiplier = 1;
+    mouse-scroll-multiplier = 3;
     background-opacity = 0.90;
     unfocused-split-opacity = 0.70;
     tab-inherit-working-directory = false;

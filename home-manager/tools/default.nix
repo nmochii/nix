@@ -7,6 +7,7 @@
     ./age.nix
     ./asciinema.nix
     ./bat.nix
+    ./clin.nix # obsidian inspired notes taker
     ./difftastic.nix
     ./dust.nix # du
     ./eza.nix
@@ -21,6 +22,7 @@
     ./ouch.nix # compress / decompress
     ./pik.nix # interactive kill
     ./posting.nix
+    ./rustnet.nix # network analyzer
     ./ripgrep.nix
     ./sd.nix
     ./ssh.nix

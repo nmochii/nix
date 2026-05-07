@@ -11,13 +11,14 @@ in
   lib.mkIf config.modules.vcs.enable {
     programs.jujutsu.settings = {
       revset-aliases = {
-        "active(rev)" = "mutable()-::rev";
+        recent = "ancestors(trunk(), 10)";
+        "active(rev)" = "trunk()::rev";
         current = "active(@)";
         wip = "description(substring:'${wip-label}')";
         private = "description(substring:'${private-label}')";
         merge = "description(substring:'${merge-label}')";
         blacklist = "wip | private | merge";
-        "user(x)" = "author(x) | committer(x)";
+        "user(x)" = "author(x) | committer(x) | author_email(x)";
       };
       template-aliases = {
         default_commit_description = ''
@@ -35,7 +36,7 @@ in
         nn = ["new" "--no-edit"];
         private = ["new" "-m" private-label];
         wip = ["new" "-m" wip-label];
-        merge = ["new" "-m" "merge-label"];
+        merge = ["new" "-m" merge-label];
         merge-add = ["rebase" "-s" "merge & current" "-d" "merge- & current" "-d"];
         retrunk = ["rebase" "-s" "roots(mutable())" "-d" "trunk()" "--simplify-parents"];
         blame = ["file" "annotate"];

@@ -29,10 +29,8 @@
   targets.genericLinux.nixGL.installScripts = ["mesa"];
 
   programs = {
-    kitty.package = config.lib.nixGL.wrap pkgs.kitty;
     ghostty.package = config.lib.nixGL.wrap pkgs.ghostty;
     firefox.package = config.lib.nixGL.wrap pkgs.firefox;
-    chromium.package = config.lib.nixGL.wrap pkgs.chromium;
     mpv.package = config.lib.nixGL.wrap pkgs.mpv;
     niri.package = config.lib.nixGL.wrap pkgs.niri;
   };

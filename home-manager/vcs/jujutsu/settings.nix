@@ -20,7 +20,7 @@ lib.mkIf config.modules.vcs.enable {
       };
     ui = {
       editor = user.editor;
-      # conflict-marker-style = "snapshot";
+      conflict-marker-style = "snapshot";
       bookmark-list-sort-keys = ["committer-date"];
       diff-editor = ":builtin";
       default-command = [

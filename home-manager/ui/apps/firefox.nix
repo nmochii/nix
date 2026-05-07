@@ -7,6 +7,7 @@
 lib.mkIf config.modules.ui.enable {
   programs.firefox = {
     enable = true;
+    configPath = "${config.xdg.configHome}/mozilla/firefox";
     policies = {
       DisableFirefoxStudies = true;
       DisablePocket = true;

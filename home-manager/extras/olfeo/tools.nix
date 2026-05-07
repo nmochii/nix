@@ -1,4 +1,6 @@
-{user, ...}: {
+{user, ...}: let
+  mkAgeAliases = import ../../../lib/mkAgeAliases.nix;
+in {
   xdg.configFile."yamlfmt/.yamlfmt".text = ''
     formatter:
       retain_line_breaks: true
@@ -11,8 +13,8 @@
     target-version = "py311"
   '';
 
-  home.shellAliases = {
-    "age:olfeo:decrypt" = "age --decrypt -i ${user.SSoT}/secrets/olfeo.age.txt";
-    "age:olfeo:encrypt" = "age --encrypt -i ${user.SSoT}/secrets/olfeo.age.txt";
-  };
+  age.identityPaths = [
+    "${user.SSoT}/secrets/olfeo.age.txt"
+  ];
+  home.shellAliases = mkAgeAliases "${user.SSoT}/secrets" "olfeo";
 }
