@@ -1,7 +1,6 @@
 {
   config,
   lib,
-  user,
   ...
 }:
 lib.mkIf config.modules.tools.enable {
@@ -25,7 +24,7 @@ lib.mkIf config.modules.tools.enable {
     ];
   };
 
-  programs.fish.shellAbbrs = lib.mkIf (user.shell == "fish") {
+  programs.fish.shellAbbrs = lib.mkIf config.programs.fish.enable {
     rgi = "rg -i";
     rgs = "rg -S";
   };

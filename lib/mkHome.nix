@@ -7,15 +7,19 @@
   system,
   user,
 }:
-home-manager.lib.homeManagerConfiguration {
+let
   pkgs = import nixpkgs {
     inherit system;
     config.allowUnfree = true;
   };
+in
+home-manager.lib.homeManagerConfiguration {
+  inherit pkgs;
   extraSpecialArgs = let
     uiConf = "${hostModule}/ui.nix";
   in {
     inherit inputs system user;
+    mylib = import ../lib {inherit pkgs;};
     ui =
       if builtins.pathExists uiConf
       then import uiConf

@@ -27,6 +27,6 @@ lib.mkIf config.modules.tools.enable {
   ];
 
   home.shellAliases = {
-    "ssh.ui" = "purple --config ${user.SSoT}/ssh/purple/conf";
+    "ssh:ui" = "purple --config ${user.SSoT}/ssh/purple/conf";
   };
 }

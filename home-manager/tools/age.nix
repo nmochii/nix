@@ -3,11 +3,10 @@
   config,
   lib,
   pkgs,
+  mylib,
   ...
-}: let
-  mkAgeAliases = import ../../lib/mkAgeAliases.nix;
-in
-  lib.mkIf config.modules.tools.enable {
+}:
+lib.mkIf config.modules.tools.enable {
     home.packages = [
       pkgs.age
     ];
@@ -15,5 +14,5 @@ in
     age.identityPaths = [
       "${user.SSoT}/secrets/personal.age.txt"
     ];
-    home.shellAliases = mkAgeAliases "${user.SSoT}/secrets" "personal";
+    home.shellAliases = mylib.mkAgeAliases "${user.SSoT}/secrets" "personal";
   }

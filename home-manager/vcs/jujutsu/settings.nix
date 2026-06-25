@@ -10,14 +10,11 @@ lib.mkIf config.modules.vcs.enable {
       name = user.fullName;
       email = user.email;
     };
-    signing =
-      if user.gpgKey == ""
-      then {}
-      else {
-        behavior = "drop";
-        backend = "gpg";
-        key = user.gpgKey;
-      };
+    signing = {
+      behavior = "drop";
+      backend = "gpg";
+      key = user.gpgKey;
+    };
     ui = {
       editor = user.editor;
       conflict-marker-style = "snapshot";

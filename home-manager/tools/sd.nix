@@ -2,7 +2,6 @@
   config,
   lib,
   pkgs,
-  user,
   ...
 }:
 lib.mkIf config.modules.tools.enable {
@@ -10,7 +9,7 @@ lib.mkIf config.modules.tools.enable {
     pkgs.sd
   ];
 
-  programs.fish.shellAbbrs = lib.mkIf (user.shell == "fish") {
+  programs.fish.shellAbbrs = lib.mkIf config.programs.fish.enable {
     sed = "sd";
   };
 }

@@ -18,7 +18,7 @@ lib.mkIf config.modules.tools.enable {
     }
     else {};
 
-  programs.fish.shellAbbrs = lib.mkIf (user.shell == "fish") {
+  programs.fish.shellAbbrs = lib.mkIf config.programs.fish.enable {
     ls = "eza";
     sl = "eza";
     la = "eza -lag";

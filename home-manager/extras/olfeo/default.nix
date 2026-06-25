@@ -3,7 +3,7 @@
     ./bookmarks.nix
     ./cloud.nix
     ./database.nix
-    ./git.nix
+    ./vcs.nix
     ./ssh.nix
     ./tools.nix
   ];

@@ -75,7 +75,8 @@ nixpkgs.lib.nixosSystem {
               ];
             };
             home-manager.extraSpecialArgs = {
-              inherit user;
+              inherit inputs system user;
+              mylib = import ../lib;
               ui =
                 if builtins.pathExists uiConf
                 then import uiConf
