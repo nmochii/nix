@@ -20,12 +20,14 @@ lib.mkIf config.modules.vcs.enable {
       conflict-marker-style = "snapshot";
       bookmark-list-sort-keys = ["committer-date"];
       diff-editor = ":builtin";
+      show-cryptographic-signatures = false;
       default-command = [
         "log"
         "--config"
         "template-aliases.'format_timestamp(ts)'='ts.local().ago()'"
       ];
     };
+    templates.git_push_bookmark = ''description.first_line().replace(regex:":.+", "-") ++ change_id.short()'';
     git = {
       auto-local-bookmark = false;
       sign-on-push = user.gpgKey != "";

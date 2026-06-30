@@ -8,6 +8,10 @@ let
           url = "https://chat.olfeo.com/#all_messages";
         }
         {
+          name = "teams";
+          url = "https://teams.cloud.microsoft";
+        }
+        {
           name = "gather";
           url = "https://app.v2.gather.town/app/ekinops-olfeo-861c77f0-1261-46aa-ae2e-abeea378dae7";
         }
@@ -25,7 +29,7 @@ let
         }
         {
           name = "lucca";
-          url = "https://oneaccess.ilucca.net/hello/";
+          url = "https://ekinops.ilucca.net/hello/";
         }
         {
           name = "wiki";

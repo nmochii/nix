@@ -40,4 +40,8 @@
   ];
 
   programs.fish.enable = true;
+
+  age.identityPaths = [
+    "${user.SSoT}/secrets/personal.age.txt"
+  ];
 }

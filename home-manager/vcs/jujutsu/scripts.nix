@@ -36,5 +36,10 @@ in
           && jj edit @- --ignore-working-copy \
           || jj desc -m "pre-commit"
       '')
+      (
+        pkgs.writeShellScriptBin "__jj_history" ''
+          jj log -r "files('$1')" "$@"
+        ''
+      )
     ];
   }

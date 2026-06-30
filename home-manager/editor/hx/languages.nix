@@ -21,6 +21,28 @@ lib.mkIf config.modules.editor.enable {
         command = "emmet-ls";
         args = ["--stdio"];
       };
+      yaml-language-server.config.yaml = {
+        completion = true;
+        validation = true;
+        hover = true;
+        schemas = {
+          kubernetes = [
+            "*deployment*"
+            "*service*"
+            "*svc*"
+            "*configmap*"
+            "*secret*"
+            "*pod*"
+            "*namespace*"
+            "*ingress*"
+            "*egress*"
+            "*volume*"
+            "*pv*"
+            "*pvc*"
+            "*kube*"
+          ];
+        };
+      };
     };
     languages.language = [
       {
@@ -78,6 +100,11 @@ lib.mkIf config.modules.editor.enable {
             "typescript"
           ];
         };
+      }
+      {
+        name = "yaml";
+        file-types = ["yaml" "yml"];
+        language-servers = ["yaml-language-server"];
       }
     ];
   };

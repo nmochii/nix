@@ -10,7 +10,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixgl.url = "github:nix-community/nixGL";
-    agenix.url = "github:ryantm/agenix";
+    agenix = {
+      url = "github:ryantm/agenix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     niri = {
       url = "github:sodiboo/niri-flake/32bed686f4fd8274a5e4a58d071687a74e19821e";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -24,6 +27,7 @@
     };
     clin = {
       url = "github:reekta92/clin-rs/3acb07932a61fbd3b1483b18891fbef61d47ef8e";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

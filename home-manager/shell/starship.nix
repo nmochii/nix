@@ -9,13 +9,26 @@ lib.mkIf config.modules.shell.enable {
     enable = true;
     settings = {
       add_newline = false;
-      format = "$nix_shell$directory$jobs$character";
-      right_format = "$python$git_branch\${custom.jj}";
-      directory.truncation_length = 3;
-      character.success_symbol = "[>>](bold green)";
-      character.error_symbol = "[>>](bold red)";
-      python.format = "$virtualenv [$version](green) ";
-      python.version_format = "$major.$minor";
+      command_timeout = 1000;
+      format = "$nix_shell$directory$jobs$ssh$character";
+      right_format = "$cmd_duration$python$git_branch\${custom.jj}";
+      cmd_duration = {
+        show_milliseconds = true;
+        format = "[$duration]($style) ";
+        style = "bold yellow";
+      };
+      directory = {
+        truncation_length = 3;
+        truncate_to_repo = true;
+      };
+      character = {
+        success_symbol = "[>>](bold green)";
+        error_symbol = "[>>](bold red)";
+      };
+      python = {
+        format = "$virtualenv [$version](green) ";
+        version_format = "$major.$minor";
+      };
       nix_shell.format = "[󰘧]($style) ";
       git_branch = {
         format = "[$symbol$branch(:$remote_branch)]($style) ";

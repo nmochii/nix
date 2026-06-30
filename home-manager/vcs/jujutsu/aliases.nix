@@ -19,6 +19,7 @@ in
         merge = "description(substring:'${merge-label}')";
         blacklist = "wip | private | merge";
         "user(x)" = "author(x) | committer(x) | author_email(x)";
+        "search(s)" = "diff_lines(substring:s)";
       };
       template-aliases = {
         default_commit_description = ''
@@ -41,11 +42,12 @@ in
         retrunk = ["rebase" "-s" "roots(mutable())" "-d" "trunk()" "--simplify-parents"];
         blame = ["file" "annotate"];
         fetch = ["git" "fetch"];
-        push = ["git" "push" "-b"];
+        push = ["git" "push"];
         clone = ["git" "clone"];
         init = ["git" "init"];
-        ui = ["util" "exec" "__jj_ui"];
-        tug = ["util" "exec" "__jj_tug"];
+        history = ["util" "exec" "__jj_history" "--"];
+        ui = ["util" "exec" "__jj_ui" "--"];
+        tug = ["util" "exec" "__jj_tug" "--"];
         branch = ["util" "exec" "__jj_branch" "--"];
         pre-commit = ["util" "exec" "__jj_pre_commit"];
       };

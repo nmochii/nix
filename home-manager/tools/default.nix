@@ -7,18 +7,20 @@
     ./age.nix
     ./asciinema.nix
     ./bat.nix
-    ./clin.nix # obsidian inspired notes taker
+    ./benchmark.nix
+    ./notes.nix
     ./difftastic.nix
     ./dust.nix # du
+    ./eilmeldung.nix # rss
     ./eza.nix
     ./fd.nix
     ./fzf.nix
     ./gpg.nix
     ./hck.nix # cut
     ./htop.nix
-    ./hyperfine.nix # benchmark
     ./imagemagick.nix
     ./jq.nix
+    ./moor.nix
     ./ouch.nix # compress / decompress
     ./pik.nix # interactive kill
     ./posting.nix
@@ -41,5 +43,8 @@
     home.sessionPath = [
       "${config.home.homeDirectory}/.local/bin"
     ];
+    home.sessionVariables = {
+      PAGER = "moor";
+    };
   };
 }

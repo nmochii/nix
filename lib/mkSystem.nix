@@ -8,7 +8,7 @@
 }:
 nixpkgs.lib.nixosSystem {
   specialArgs = {
-    inherit user;
+    inherit inputs user;
   };
   modules =
     [

@@ -27,7 +27,7 @@ lib.mkIf config.modules.vcs.enable {
   home.packages = [
     (pkgs.writeShellScriptBin "__jj_ui" ''
       if [ $# -eq 1 ] && [ -e $1 ]; then
-        jjui -r "files($1)"
+        jjui -r "files('$1')"
       elif [ $# -eq 0 ]; then
         jjui -r ".."
       else

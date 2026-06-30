@@ -1,11 +1,13 @@
 {
   config,
   lib,
-  pkgs,
   ...
 }:
 lib.mkIf config.modules.tools.enable {
-  home.packages = [
-    pkgs.posting
-  ];
+  programs.posting = {
+    enable = true;
+    settings = {
+      theme = "textual-dark";
+    };
+  };
 }
