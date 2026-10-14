@@ -50,10 +50,12 @@
         user = import ./users/akhe.nix;
       };
     };
-    nixosConfigurations.virtual-mochi = mkSystem {
-      hostModule = ./hosts/virtual-mochi;
-      system = "x86_64-linux";
-      user = import ./users/akhe.nix;
+    nixosConfigurations = {
+      virtual-mochi = mkSystem {
+        hostModule = ./hosts/virtual-mochi;
+        system = "x86_64-linux";
+        user = import ./users/akhe.nix;
+      };
     };
   };
 }

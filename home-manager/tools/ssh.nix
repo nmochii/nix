@@ -6,7 +6,7 @@
   user,
   ...
 }:
-lib.mkIf config.modules.tools.enable {
+lib.mkIf (config.modules.tools.enable && config.modules.tools.extrasEnable) {
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;

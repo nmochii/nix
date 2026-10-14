@@ -9,8 +9,11 @@
   modules = {
     editor.enable = true;
     shell.enable = true;
+    tools = {
+      enable = true;
+      extrasEnable = true;
+    };
     terminal.enable = true;
-    tools.enable = true;
     ui.enable = true;
     vcs.enable = true;
   };
@@ -32,6 +35,5 @@
     ghostty.package = config.lib.nixGL.wrap pkgs.ghostty;
     firefox.package = config.lib.nixGL.wrap pkgs.firefox;
     mpv.package = config.lib.nixGL.wrap pkgs.mpv;
-    niri.package = config.lib.nixGL.wrap pkgs.niri;
   };
 }

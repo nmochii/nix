@@ -10,7 +10,7 @@ lib.mkIf config.modules.shell.enable {
     settings = {
       add_newline = false;
       command_timeout = 1000;
-      format = "$nix_shell$directory$jobs$ssh$character";
+      format = "$hostname$nix_shell$directory$jobs$character";
       right_format = "$cmd_duration$python$git_branch\${custom.jj}";
       cmd_duration = {
         show_milliseconds = true;
@@ -20,6 +20,10 @@ lib.mkIf config.modules.shell.enable {
       directory = {
         truncation_length = 3;
         truncate_to_repo = true;
+      };
+      hostname = {
+        ssh_only = true;
+        format = "[$hostname](bold blue):";
       };
       character = {
         success_symbol = "[>>](bold green)";

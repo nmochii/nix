@@ -16,6 +16,9 @@
     nameservers = ["1.1.1.1"];
   };
 
+  users.users.root.initialPassword = "root";
+  users.users.${user.name}.initialPassword = user.name;
+
   security.sudo.wheelNeedsPassword = false;
 
   services = {
@@ -32,16 +35,9 @@
       options = "ctrl:nocaps";
     };
   };
-  nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
     git
     helix
-  ];
-
-  programs.fish.enable = true;
-
-  age.identityPaths = [
-    "${user.SSoT}/secrets/personal.age.txt"
   ];
 }

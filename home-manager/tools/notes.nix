@@ -1,16 +1,16 @@
 {
   config,
   lib,
-  inputs,
-  system,
   pkgs,
   user,
   mylib,
+  inputs,
+  system,
   ...
 }:
-lib.mkIf config.modules.tools.enable {
+lib.mkIf (config.modules.tools.enable && config.modules.tools.extrasEnable) {
   home.packages = [
-    inputs.clin.packages.${system}.default
+    # inputs.clin.packages.${system}.default
     pkgs.glow # deps
   ];
 

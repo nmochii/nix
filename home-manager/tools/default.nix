@@ -3,41 +3,30 @@
   lib,
   ...
 }: {
-  imports = [
-    ./age.nix
-    ./asciinema.nix
-    ./bat.nix
-    ./benchmark.nix
-    ./notes.nix
-    ./difftastic.nix
-    ./dust.nix # du
-    ./eilmeldung.nix # rss
-    ./eza.nix
-    ./fd.nix
-    ./fzf.nix
-    ./gpg.nix
-    ./hck.nix # cut
-    ./htop.nix
-    ./imagemagick.nix
-    ./jq.nix
-    ./moor.nix
-    ./ouch.nix # compress / decompress
-    ./pik.nix # interactive kill
-    ./posting.nix
-    ./rustnet.nix # network analyzer
-    ./ripgrep.nix
-    ./sd.nix
-    ./ssh.nix
-    ./topgrade.nix
-    ./tree.nix
-    ./typst.nix
-    ./viu.nix # image viewer
-    ./xleak.nix # excel
-    ./yazi.nix
-    ./yt-dlp.nix
-    ./zellij.nix # tmux like
-    ./zoxide.nix
-  ];
+  imports =
+    [
+      ./age.nix
+      ./bat.nix
+      ./difftastic.nix
+      ./dust.nix # du
+      ./eza.nix
+      ./fd.nix
+      ./fzf.nix
+      ./gpg.nix
+      ./hck.nix # cut
+      ./htop.nix
+      ./jq.nix
+      ./moor.nix
+      ./ouch.nix # compress / decompress
+      ./pik.nix # interactive kill
+      ./ripgrep.nix
+      ./sd.nix
+      ./tree.nix
+      ./yazi.nix
+      ./zellij.nix # tmux like
+      ./zoxide.nix
+    ]
+    ++ import ./extras.nix;
 
   config = lib.mkIf config.modules.tools.enable {
     home.sessionPath = [

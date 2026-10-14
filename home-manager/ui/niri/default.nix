@@ -2,9 +2,13 @@
   config,
   lib,
   pkgs,
+  inputs,
   ...
 }: {
   imports = [
+    inputs.niri.homeModules.niri
+    inputs.dankMaterialShell.homeModules.dank-material-shell
+    inputs.dankMaterialShell.homeModules.niri
     ./dms.nix
     ./keybinds.nix
     ./prefs.nix

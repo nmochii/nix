@@ -6,7 +6,7 @@
   programs.jujutsu.settings = {
     "--scope" = [
       {
-        "--when".repositories = ["~/work/olfeo"];
+        "--when".repositories = ["~/work/ekinops" "/home/dev/ekinops"];
         signing.key = "EEE69178";
         user.email = "albert.khe@ekinops.com";
         templates.git_push_bookmark = ''description.first_line().replace(regex:"].*|\\[", "")'';
